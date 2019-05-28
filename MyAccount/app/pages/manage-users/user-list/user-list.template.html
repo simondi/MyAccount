@@ -1,0 +1,36 @@
+﻿<div class="table-responsive">
+    <table st-table="$ctrl.users" st-pipe="$ctrl.refreshUsers" class="table table-bordered sortable refreshing" st-refresh>
+        <thead>
+            <tr>
+                <th st-sort="UserName" st-skip-natural="true">User ID</th>
+                <th st-sort="Business" st-skip-natural="true">Business Licenses</th>
+            </tr>
+            <tr>
+                <th>
+                    <input st-search="UserName" placeholder="Filter by user ID" class="input-sm form-control" type="search" st-class-if-filtered="highlight-search" />
+                </th>
+                <th>
+                    <input st-search="Business" placeholder="Filter by business" class="input-sm form-control" type="search" st-class-if-filtered="highlight-search" />
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr st-select-row="user" st-select-mode="single" st-select-notifier="$ctrl.onSelect" ng-repeat="user in $ctrl.users">
+                <td>{{user.userName}}</td>
+                <td>{{$ctrl.businessNames(user)}}</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="3" class="text-right">
+                    <st-page-summary is-loading="$ctrl.isRefreshing"></st-page-summary>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="3" class="text-center">
+                    <div st-pagination="" st-items-by-page="$ctrl.itemsPerPage" st-displayed-pages="20"></div>
+                </td>
+            </tr>
+        </tfoot>
+    </table>
+</div>

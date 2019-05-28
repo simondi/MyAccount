@@ -1,0 +1,1 @@
+﻿angular.module('portal.core.resources.account', ['ngResource']);

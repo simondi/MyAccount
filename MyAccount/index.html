@@ -1,0 +1,223 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta content="IE=edge, chrome=1" http-equiv="X-UA-Compatible" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <title>MyAccount</title>
+    <!-- inject:vendor:css -->
+    <link rel="stylesheet" href="app/bower_components/bootstrap-css-only/css/bootstrap.css">
+    <link rel="stylesheet" href="app/bower_components/angular-loading-bar/build/loading-bar.css">
+    <link rel="stylesheet" href="app/bower_components/ngToast/dist/ngToast.css">
+    <!-- endinject -->
+    <!-- inject:css -->
+    <link rel="stylesheet" href="app/css/app.css">
+    <!-- endinject -->
+    <link rel="stylesheet" href="app/assets/styles/proxima-nova-300-400-600.css">
+    <base href="" />
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="apple-touch-icon" href="app/assets/images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="app/assets/images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="app/assets/images/apple-touch-icon-114x114.png">
+
+</head>
+<body ng-app="portal">
+    <!--body ng-app="portal" ng-controller="EventsCtrl"-->
+    <header>
+        <toast></toast>
+        <main-menu></main-menu>
+    </header>
+
+    <section class="main">
+        <div class="container">
+            <div class="ui-view" ng-view="" autoscroll>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <span class="copyright">Copyright &copy;2019 Consumer Protection BC &nbsp;&nbsp; Need help?  Contact us at 1&#183;888&#183;564&#183;9963</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- inject:vendor:js -->
+    <script src="app/bower_components/angular/angular.js"></script>
+    <script src="app/bower_components/angular-ui-router/angular-ui-router.js"></script>
+    <script src="app/bower_components/angular-resource/angular-resource.js"></script>
+    <script src="app/bower_components/angular-smart-table/dist/smart-table.js"></script>
+    <script src="app/bower_components/angular-messages/angular-messages.js"></script>
+    <script src="app/bower_components/angular-animate/angular-animate.js"></script>
+    <script src="app/bower_components/ng-lodash/build/ng-lodash.js"></script>
+    <script src="app/bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+    <script src="app/bower_components/angular-local-storage/dist/angular-local-storage.js"></script>
+    <script src="app/bower_components/angular-loading-bar/build/loading-bar.js"></script>
+    <script src="app/bower_components/ngMask/dist/ngMask.js"></script>
+    <script src="app/bower_components/angular-sanitize/angular-sanitize.js"></script>
+    <script src="app/bower_components/angular-upload/angular-upload.js"></script>
+    <script src="app/bower_components/moment/moment.js"></script>
+    <script src="app/bower_components/ngToast/dist/ngToast.js"></script>
+    <script src="app/bower_components/angular-moment/angular-moment.js"></script>
+    <script src="app/bower_components/angular-google-analytics/dist/angular-google-analytics.min.js"></script>
+    <script src="app/bower_components/bower-angular-aria-master/angular-aria.min.js"></script>
+    <script src="app/bower_components/bower-material-master/angular-material.min.js"></script>
+    <script src='app/bower_components/pdfmake/build/pdfmake.min.js'></script>
+    <script src='app/bower_components/pdfmake/build/vfs_fonts.js'></script>
+    <!--
+    <script src="app/bower_components/angular-modal-service/dst/angular-modal-service.min.js"></script>
+    -->
+    <!-- endinject -->
+    <!-- Warp.Core injection  start point -->
+    <script src="app/warp.core/directives/st-select-notifier/st-select-notifier.module.js"></script>
+    <script src="app/warp.core/directives/st-select-notifier/st-select-notifier.directive.js"></script>
+    <script src="app/warp.core/directives/st-refresh/st-refresh.module.js"></script>
+    <script src="app/warp.core/directives/st-refresh/st-refresh.directive.js"></script>
+    <script src="app/warp.core/directives/st-page-summary/st-select-page-summary.module.js"></script>
+    <script src="app/warp.core/directives/st-page-summary/st-page-summary.component.js"></script>
+    <script src="app/warp.core/directives/st-class-if-filtered/st-class-if-filtered.module.js"></script>
+    <script src="app/warp.core/directives/st-class-if-filtered/st-class-if-filtered.directive.js"></script>
+    <script src="app/warp.core/directives/matches-field/matches-field.module.js"></script>
+    <script src="app/warp.core/directives/matches-field/matches-field.directive.js"></script>
+    <script src="app/warp.core/directives/st-activity-monitor/st-activitiy-monitor.module.js"></script>
+    <script src="app/warp.core/directives/st-activity-monitor/st-activitiy-monitor.directive.js"></script>
+    <script src="app/warp.core/directives/confirm-exit/confirm-exit.module.js"></script>
+    <script src="app/warp.core/directives/confirm-exit/confirm-exit.directive.js"></script>
+    <script src="app/warp.core/components/confirm/confirm.module.js"></script>
+    <script src="app/warp.core/components/confirm/confirm.service.js"></script>
+    <script src="app/warp.core/components/confirm/confirm.controller.js"></script>
+    <!-- endinject -->
+    <!-- inject:js -->
+    <script src="app/app.js"></script>
+    <script src="app/pages/renew/telemarketer/renew-telemarketer.module.js"></script>
+    <script src="app/pages/renew/telemarketer/renew-telemarketer.component.js"></script>
+    <script src="app/pages/renew/summary/renew-summary.module.js"></script>
+    <script src="app/pages/renew/summary/renew-summary.component.js"></script>
+    <script src="app/pages/renew/pre-arranged/renew-pre-arranged.module.js"></script>
+    <script src="app/pages/renew/pre-arranged/renew-pre-arranged.component.js"></script>
+    <script src="app/pages/renew/funeral/renew-funeral.module.js"></script>
+    <script src="app/pages/renew/funeral/renew-funeral.component.js"></script>
+    <script src="app/pages/renew/declaration/renew-declaration.module.js"></script>
+    <script src="app/pages/renew/declaration/renew-declaration.component.js"></script>
+    <script src="app/pages/renew/crematorium/renew-crematorium.module.js"></script>
+    <script src="app/pages/renew/crematorium/renew-crematorium.component.js"></script>
+    <script src="app/pages/renew/corporate/renew-corporate.module.js"></script>
+    <script src="app/pages/renew/corporate/renew-corporate.component.js"></script>
+    <script src="app/pages/renew/cemetery/renew-cemetery.module.js"></script>
+    <script src="app/pages/renew/cemetery/renew-cemetery.component.js"></script>
+    <script src="app/pages/manage-users/manager-users.module.js"></script>
+    <script src="app/pages/manage-users/user-list/user-list.component.js"></script>
+    <script src="app/pages/manage-users/user-details/user-details.component.js"></script>
+    <script src="app/pages/manage-users/user-details/change-email.controller.js"></script>
+    <script src="app/pages/manage-users/user-businesses/user-businesses.component.js"></script>
+    <script src="app/pages/manage-users/mass-create/mass-create.controller.js"></script>
+    <script src="app/pages/manage-users/business-search/business-search.component.js"></script>
+    <script src="app/pages/manage-users/add-user/add-user.controller.js"></script>
+    <script src="app/pages/manage-users/add-business/add-business.controller.js"></script>
+    <script src="app/pages/licenses/individuals/licenses.individuals.module.js"></script>
+    <script src="app/pages/licenses/individuals/licenses.individuals.controller.js"></script>
+    <script src="app/pages/licenses/license-tabs/licenses.licenseTabs.module.js"></script>
+    <script src="app/pages/licenses/license-tabs/licenses.licenseTabs.component.js"></script>
+    <script src="app/pages/licenses/preneed/licenses.preneed.module.js"></script>
+    <script src="app/pages/licenses/preneed/licenses.preneed.controller.js"></script>
+    <script src="app/pages/licenses/financial-review/licenses.financial-review.module.js"></script>
+    <script src="app/pages/licenses/financial-review/licenses.financial-review.controller.js"></script>
+    <script src="app/pages/licenses/travel-finance/licenses.travel-finance.module.js"></script>
+    <script src="app/pages/licenses/travel-finance/licenses.travel-finance.controller.js"></script>
+    <script src="app/pages/licenses/details/licenses.details.module.js"></script>
+    <script src="app/pages/licenses/details/licenses.details.controller.js"></script>
+    <script src="app/pages/licenses/admin-fees/licenses.admin-fees.module.js"></script>
+    <script src="app/pages/licenses/admin-fees/licenses.admin-fees.controller.js"></script>
+    <script src="app/pages/licenses/admin-fee-details/licenses.admin-fee-details.module.js"></script>
+    <script src="app/pages/licenses/admin-fee-details/licenses.admin-fee-details.component.js"></script>
+    <script src="app/core/resources/user/user.module.js"></script>
+    <script src="app/core/resources/version/version.service.js"></script>
+    <script src="app/core/resources/version/version.module.js"></script>
+    <script src="app/core/resources/user/user.service.js"></script>
+    <script src="app/core/resources/role/role.module.js"></script>
+    <script src="app/core/resources/role/role.service.js"></script>
+    <script src="app/core/resources/order/order.module.js"></script>
+    <script src="app/core/resources/order/order.service.js"></script>
+    <script src="app/core/resources/license/license.module.js"></script>
+    <script src="app/core/resources/license/license.service.js"></script>
+    <script src="app/core/resources/financial-review/financial-review.module.js"></script>
+    <script src="app/core/resources/financial-review/financial-review.service.js"></script>
+    <script src="app/core/resources/travel-finance/travel-finance.module.js"></script>
+    <script src="app/core/resources/travel-finance/travel-finance.service.js"></script>
+    <script src="app/core/resources/account/account.module.js"></script>
+    <script src="app/core/resources/account/account.service.js"></script>
+    <script src="app/core/resources/modal/model.module.js"></script>
+    <script src="app/core/resources/modal/modal.service.js"></script>
+    <script src="app/services/identity-cache/identity-cache.module.js"></script>
+    <script src="app/services/identity-cache/identity-cache.service.js"></script>
+    <script src="app/services/asp-net-helpers/asp-net-helpers.module.js"></script>
+    <script src="app/services/asp-net-helpers/asp-net-helpers.service.js"></script>
+    <script src="app/interceptors/x-responded-json/x-responded-json.module.js"></script>
+    <script src="app/interceptors/x-responded-json/x-reponded-json.interceptor.js"></script>
+    <script src="app/interceptors/oauth-token/oauth-token.module.js"></script>
+    <script src="app/interceptors/oauth-token/oauth-token.interceptor.js"></script>
+    <script src="app/interceptors/auth-failure/auth-failure.module.js"></script>
+    <script src="app/interceptors/auth-failure/auth-failure.interceptor.js"></script>
+    <script src="app/filters/street-address/street-address.module.js"></script>
+    <script src="app/filters/street-address/street-address.filter.js"></script>
+    <script src="app/filters/phone-number/phone-number.module.js"></script>
+    <script src="app/filters/phone-number/phone-number.filter.js"></script>
+    <script src="app/filters/full-address/full-address.module.js"></script>
+    <script src="app/filters/full-address/full-address.filter.js"></script>
+    <script src="app/core/resources/resources.module.js"></script>
+    <script src="app/components/main-menu/main-menu.module.js"></script>
+    <script src="app/components/main-menu/main-menu.controller.js"></script>
+    <script src="app/components/main-menu/main-menu.component.js"></script>
+    <script src="app/components/login-modal/login-modal.component.module.js"></script>
+    <script src="app/components/login-modal/login-modal.component.js"></script>
+    <script src="app/components/login/login.component.module.js"></script>
+    <script src="app/components/login/login.component.js"></script>
+    <script src="app/services/services.module.js"></script>
+    <script src="app/filters/filters.module.js"></script>
+    <script src="app/components/components.module.js"></script>
+    <script src="app/pages/licenses/licenses.module.js"></script>
+    <script src="app/pages/licenses/licenses.controller.js"></script>
+    <script src="app/pages/licenses/financial-review/services/definitions.service.js"></script>
+    <script src="app/pages/licenses/financial-review/components/loans-by-term.component.js"></script>
+    <script src="app/pages/licenses/financial-review/components/loans-by-dollar.component.js"></script>
+    <script src="app/pages/licenses/financial-review/components/loan-transactions.controller.js"></script>
+    <script src="app/pages/licenses/financial-review/components/loan-fees.component.js"></script>
+    <script src="app/pages/licenses/financial-review/components/loan-borrowers.component.js"></script>
+    <script src="app/pages/licenses/financial-review/components/defaulted-loans.component.js"></script>
+    <script src="app/pages/licenses/financial-review/components/ancillary-products.component.js"></script>
+    <script src="app/pages/licenses/financial-review/components/all-loans.component.js"></script>
+    <script src="app/pages/licenses/travel-finance/services/definitions.service.js"></script>
+    <script src="app/pages/licenses/travel-finance/components/travel-agent.component.js"></script>
+    <script src="app/pages/licenses/travel-finance/components/travel-wholesaler.component.js"></script>
+    <script src="app/pages/licenses/travel-finance/components/travel-mixed.component.js"></script>
+    <script src="app/pages/licenses/travel-finance/components/travel-onHoliday.component.js"></script>
+    <script src="app/pages/licenses/popup.controller.js"></script>
+    <script src="app/pages/pages.module.js"></script>
+    <script src="app/pages/user-settings/user-settings.module.js"></script>
+    <script src="app/pages/user-settings/user-settings.controller.js"></script>
+    <script src="app/pages/renew/renew.module.js"></script>
+    <script src="app/pages/renew/renew.controller.js"></script>
+    <script src="app/pages/password-change/password-change.module.js"></script>
+    <script src="app/pages/password-change/password-change.controller.js"></script>
+    <script src="app/pages/passwordEmail-change/passwordEmail-change.module.js"></script>
+    <script src="app/pages/passwordEmail-change/passwordEmail-change.controller.js"></script>
+
+    <script src="app/pages/user-changeEmail/user-changeEmail.module.js"></script>
+    <script src="app/pages/user-changeEmail/user-changeEmail.controller.js"></script>
+
+    <script src="app/pages/manage-users/manage-users.controller.js"></script>
+    <script src="app/pages/login/login.module.js"></script>
+    <script src="app/pages/login/login.controller.js"></script>
+    <script src="app/pages/forgot-password/forgot-password.module.js"></script>
+    <script src="app/pages/forgot-password/forgot-password.controller.js"></script>
+    <script src="app/pages/checkout/checkout.module.js"></script>
+    <script src="app/pages/checkout/renewal-checkout.controller.js"></script>
+    <script src="app/pages/checkout/admin-fee-checkout.controller.js"></script>
+    <script src="app/pages/checkout/taf-checkout.controller.js"></script>
+    <!-- endinject -->
+</body>
+</html>

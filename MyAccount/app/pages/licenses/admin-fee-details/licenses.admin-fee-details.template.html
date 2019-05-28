@@ -1,0 +1,187 @@
+﻿<div class="panel panel-default">
+    <div class="panel-body container admin-fee-details">
+        <p ng-hide="$ctrl.adminFee">Select an admin fee to view the details.</p>
+        <div ng-hide="!$ctrl.adminFee">
+            <form name="adminFeeForm">
+                <div class="row">
+                    <div class="col-md-5">
+                        <div class="row">
+                            <div class="col-md-7">
+                                <label>Period Start:</label>
+                            </div>
+                            <div class="col-md-5">
+                                <span>{{$ctrl.formatDate($ctrl.adminFee.periodStartDate)}}</span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-7">
+                                <label>Period End:</label>
+                            </div>
+                            <div class="col-md-5">
+                                <span>{{$ctrl.formatDate($ctrl.adminFee.periodEndDate)}}</span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-7">
+                                <label>Payment Due:</label>
+                            </div>
+                            <div class="col-md-5">
+                                <span>{{$ctrl.formatDate($ctrl.adminFee.paymentDueDate)}}</span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-7">
+                                <label>Payment Received:</label>
+                            </div>
+                            <div class="col-md-5">
+                                <span>{{$ctrl.formatDate($ctrl.adminFee.paymentReceivedDate)}}</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="alert alert-warning" ng-if="$ctrl.adminFee.isBeforePaymentPeriod">
+                            <p>
+                                The payment period for this fee begins after {{$ctrl.formatDate($ctrl.adminFee.periodEndDate)}}.
+                                You cannot pay this fee before that date.
+                            </p>
+                        </div>
+                        <div class="alert alert-warning" ng-if="$ctrl.adminFee.isAfterPaymentPeriod">
+                            <p>
+                                The payment period for this fee ended {{$ctrl.formatDate($ctrl.adminFee.paymentDueBeforeDate)}}.
+                                You cannot pay this fee at this time.
+                            </p>
+                        </div>
+                        <div class="alert alert-warning" ng-if="$ctrl.adminFee.paymentReceivedDate">
+                            <p>
+                                A payment for this fee was made {{$ctrl.formatDate($ctrl.adminFee.paymentReceivedDate)}}.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <fieldset ng-disabled="!$ctrl.isEditable()">
+                    <div class="row top15">
+                        <div class="col-md-10">
+                            <label class="fee-item">
+                                Total number of death registrations for the period
+                                {{$ctrl.formatDate($ctrl.adminFee.periodStartDate)}} to
+                                {{$ctrl.formatDate($ctrl.adminFee.periodEndDate)}}:
+                            </label>
+                        </div>
+                        <div class="col-md-2">
+                            <input type="number" name="totalDeaths" required min="0" ng-model="$ctrl.adminFee.totalDeathRegistrations"  class="placeHolderReminder" placeholder="0 or greater"/>
+                        </div>
+                    </div>
+                    <div ng-messages for="adminFeeForm.totalDeaths.$error" role="alert" class="row top5 warning"
+                         ng-if="adminFeeForm.totalDeaths.$invalid && adminFeeForm.totalDeaths.$touched">
+                        <div ng-message="required">The total death registrations value is required</div>
+                        <div ng-message="min">The total death registratations value must not be less than zero</div>
+                    </div>
+
+                    <div class="row top15">
+                        <div class="col-md-9">
+                            <label class="left10 fee-item">LESS: Services for the Office of the Public Guardian and Trustee</label>
+                        </div>
+                        <div class="col-md-2">
+                            <input type="number" name="guardian" required min="0" ng-model="$ctrl.adminFee.publicGuardianServices" class="placeHolderReminder" placeholder="0 or greater"/>
+                        </div>
+                    </div>
+                    <div ng-messages for="adminFeeForm.guardian.$error" role="alert" class="row top5 warning"
+                         ng-if="adminFeeForm.guardian.$invalid && adminFeeForm.guardian.$touched">
+                        <div ng-message="required">Services for the Office of the Public Guardian and Trustees value is required</div>
+                        <div ng-message="min">Services for the Office of the Public Guardian and Trustee value must not be less than zero</div>
+                    </div>
+
+                    <div class="row top5">
+                        <div class="col-md-9">
+                            <label class="left10 fee-item">LESS: Services for the Ministry of Employment and Income Assistance</label>
+                        </div>
+                        <div class="col-md-2">
+                            <input type="number" name="ministry" required min="0" ng-model="$ctrl.adminFee.ministryOfEmploymentServices"  class="placeHolderReminder"  placeholder="0 or greater"/>
+                        </div>
+                    </div>
+                    <div ng-messages for="adminFeeForm.ministry.$error" role="alert" class="row top5 warning"
+                         ng-if="adminFeeForm.ministry.$invalid && adminFeeForm.ministry.$touched">
+                        <div ng-message="required">Services for the Ministry of Employment and Income Assistances value is required</div>
+                        <div ng-message="min">Services for the Ministry of Employment and Income Assistance value must not be less than zero</div>
+                    </div>
+
+                    <div class="row top5">
+                        <div class="col-md-9">
+                            <label class="left10 fee-item">LESS: Services for Veterans Affairs</label>
+                        </div>
+                        <div class="col-md-2">
+                            <input type="number" name="veterans" required min="0" ng-model="$ctrl.adminFee.veteransAffairsServices"  class="placeHolderReminder"  placeholder="0 or greater"/>
+                        </div>
+                    </div>
+                    <div ng-messages for="adminFeeForm.veterans.$error" role="alert" class="row top5 warning"
+                         ng-if="adminFeeForm.veterans.$invalid && adminFeeForm.veterans.$touched">
+                        <div ng-message="required">Services for Veterans Affairs value is required</div>
+                        <div ng-message="min">Services for Veterans Affairs value must not be less than zero</div>
+                    </div>
+
+                    <div class="row top5">
+                        <div class="col-md-9">
+                            <label class="left10 fee-item">LESS: Services for the Last Post Fund</label>
+                        </div>
+                        <div class="col-md-2">
+                            <input type="number" name="lastFund" required min="0" ng-model="$ctrl.adminFee.lostPostFundServices"  class="placeHolderReminder" placeholder="0 or greater"/>
+                        </div>
+                    </div>
+                    <div ng-messages for="adminFeeForm.lastFund.$error" role="alert" class="row top5 warning"
+                         ng-if="adminFeeForm.lastFund.$invalid && adminFeeForm.lastFund.$touched">
+                        <div ng-message="required">Services for the Last Post Fund value is required</div>
+                        <div ng-message="min">Services for the Last Post Fund value must not be less than zero</div>
+                    </div>
+
+                    <div class="row top5">
+                        <div class="col-md-9">
+                            <label class="left10 fee-item">LESS: Services for a Stillborn Infant or Deceased Infant Under 7 Days of Age</label>
+                        </div>
+                        <div class="col-md-2">
+                            <input type="number" name="stillborn" required min="0" ng-model="$ctrl.adminFee.stillbornServices"   class="placeHolderReminder" placeholder="0 or greater"/>
+                        </div>
+                    </div>
+                    <div ng-messages for="adminFeeForm.stillborn.$error" role="alert" class="row top5 warning"
+                         ng-if="adminFeeForm.stillborn.$invalid && adminFeeForm.stillborn.$touched">
+                        <div ng-message="required">Services for a Stillborn Infant or Deceased Infant Under 7 Days of Age value is required</div>
+                        <div ng-message="min">Services for a Stillborn Infant or Deceased Infant Under 7 Days of Age value must not be less than zero</div>
+                    </div>
+
+                    <div class="row top5">
+                        <div class="col-md-9">
+                            <label class="left10 fee-item">Subtotal</label>
+                        </div>
+                        <div class="col-md-2">
+                            <input type="number" name="subtotal" max="{{$ctrl.adminFee.totalDeathRegistrations}}" ng-model="$ctrl.subtotal" 
+                                   ng-model-options="{ getterSetter: true }" />
+                        </div>
+                    </div>
+                    <div ng-messages for="adminFeeForm.subtotal.$error" role="alert" class="row top5 warning"
+                         ng-if="adminFeeForm.subtotal.$invalid">
+                        <div ng-message="max">Total exemptions must not be greater than total number of death registrations.</div>
+                    </div>
+
+                    <div class="row top15">
+                        <div class="col-md-9 col-md-offset-1">
+                            <label class="left10 fee-item">Total</label>
+                        </div>
+                        <div class="col-md-2">
+                            <label class="fee-total">{{$ctrl.totalPayable()}}</label>
+                        </div>
+                    </div>
+                </fieldset>
+                <div class="row top15">
+                    <div class="col-md-8">
+                        <a class="btn btn-info" role="button" href="app/assets/pdf/Funeral_Administrative Fee Payment Agreement_Online.pdf" target="_blank">Administration Fee Terms</a>
+                    </div>
+                    <div class="col-md-1">
+                        <button type="button" class="btn btn-primary" ng-disabled="adminFeeForm.$invalid || !$ctrl.isEditable()" ng-click="$ctrl.onContinueClicked()">Continue</button>
+                    </div>
+                    <div class="col-md-1 col-md-offset-1">
+                        <button type="button" class="btn" ng-click="$ctrl.onCancelClicked(adminFeeForm)">Cancel</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

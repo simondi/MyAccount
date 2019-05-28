@@ -1,0 +1,19 @@
+﻿<p><h3> Travel Assurance Fund Contributions</h3></p>
+
+<div class="container travel-finance" ng-show="$parent.ctrl.onHoliday">
+    <p> You have made your Travel Assurance Fund contributions so far and you are not required to pay into the Fund this year.</p>
+</div>   
+
+<table class="row table-responsive travel-finance center" ng-show="!$parent.ctrl.onHoliday" >
+    <tbody>
+        <tr>
+            <td> {{$parent.ctrl.tafItemNo}}</td>
+            <td class="alignRight">You have not made all your Travel Assurance Fund (TAF) contributions. The amount you owe to TAF is 
+                </br> <a href="" ng-click="$parent.ctrl.onClickForPopup('app/pages/licenses/travel-finance/popups/popup-TAF.html')"> How is TAF calculated? </a>  
+            </td>
+            <td class="entry-column">
+                <input class="form-control" type="number" placeholder="0 or greater" restrict-input="{type: 'digitsOnly'}" ng-model="$ctrl.review.amountTAF" title="{{$ctrl.definitions.d3}}" />
+            </td>
+        </tr>
+    </tbody>
+</table>

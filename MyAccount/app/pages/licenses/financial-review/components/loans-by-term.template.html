@@ -1,0 +1,83 @@
+﻿<table class="table-responsive financial-review">
+    <thead>
+        <tr>
+            <th>The term of all the loans made during fiscal year (collected or not)</th>
+            <th>Loans with term of 1-7 days</th>
+            <th>Loans with term of 8-14 days</th>
+            <th>Loans with term of 15-21 days</th>
+            <th>Loans with term of 22-30 days</th>
+            <th>Loans with term of 31-62 days</th>
+            <th>Totals for all loans</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Total # of loans</td>
+            <td class="entry-column" ng-class="{'has-error': $ctrl.modelState.LoanNumbersByTerm}">
+                <input class="form-control" type="number" placeholder="0 or greater" restrict-input="{type: 'digitsOnly'}" ng-model="$ctrl.review.numberOfOneToSevenDayLoans"
+                       title="{{$ctrl.definitions.d9}}" />
+            </td>
+            <td class="entry-column" ng-class="{'has-error': $ctrl.modelState.LoanNumbersByTerm}">
+                <input class="form-control" type="number" placeholder="0 or greater" restrict-input="{type: 'digitsOnly'}" ng-model="$ctrl.review.numberOf8To14DayLoans"
+                       title="{{$ctrl.definitions.d10}}" />
+            </td>
+            <td class="entry-column" ng-class="{'has-error': $ctrl.modelState.LoanNumbersByTerm}">
+                <input class="form-control" type="number" placeholder="0 or greater" restrict-input="{type: 'digitsOnly'}" ng-model="$ctrl.review.numberOf15To21DayLoans"
+                       title="{{$ctrl.definitions.d11}}" />
+            </td>
+            <td class="entry-column" ng-class="{'has-error': $ctrl.modelState.LoanNumbersByTerm}">
+                <input class="form-control" type="number" placeholder="0 or greater" restrict-input="{type: 'digitsOnly'}" ng-model="$ctrl.review.numberOf22To30DayLoans"
+                       title="{{$ctrl.definitions.d12}}" />
+            </td>
+            <td class="entry-column" ng-class="{'has-error': $ctrl.modelState.LoanNumbersByTerm}">
+                <input class="form-control" type="number" placeholder="0 or greater" restrict-input="{type: 'digitsOnly'}" ng-model="$ctrl.review.NumberOf31To62DayLoans"
+                       title="{{$ctrl.definitions.d13}}" />
+            </td>
+            <td class="total-column">
+                <span>{{$ctrl.totalLoansByTerm()}}</span>
+            </td>
+        </tr>
+        <tr ng-show="$ctrl.modelState.LoanNumbersByTerm">
+            <td />
+            <td colspan="6">
+                <ul>
+                    <li class="alert-warning" ng-repeat="error in $ctrl.modelState.LoanNumbersByTerm">{{error}}</li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td>Total $ amount </td>
+            <td class="entry-column" ng-class="{'has-error': $ctrl.modelState.LoanPrincipalByTerm}">
+                <input class="form-control" type="number" placeholder="0 or greater" restrict-input="{type: 'digitsOnly'}" ng-model="$ctrl.review.dollarPrincipalOf1To7DayLoans"
+                       title="{{$ctrl.definitions.d14}}" />
+            </td>
+            <td class="entry-column" ng-class="{'has-error': $ctrl.modelState.LoanPrincipalByTerm}">
+                <input class="form-control" type="number" placeholder="0 or greater" restrict-input="{type: 'digitsOnly'}" ng-model="$ctrl.review.dollarPrincipalOf8To14DayLoans"
+                       title="{{$ctrl.definitions.d15}}" />
+            </td>
+            <td class="entry-column" ng-class="{'has-error': $ctrl.modelState.LoanPrincipalByTerm}">
+                <input class="form-control" type="number" placeholder="0 or greater" restrict-input="{type: 'digitsOnly'}" ng-model="$ctrl.review.dollarPrincipalOf15To21DayLoans"
+                       title="{{$ctrl.definitions.d16}}" />
+            </td>
+            <td class="entry-column" ng-class="{'has-error': $ctrl.modelState.LoanPrincipalByTerm}">
+                <input class="form-control" type="number" placeholder="0 or greater" restrict-input="{type: 'digitsOnly'}" ng-model="$ctrl.review.dollarPrincipalOf22To30DayLoans"
+                       title="{{$ctrl.definitions.d17}}" />
+            </td>
+            <td class="entry-column" ng-class="{'has-error': $ctrl.modelState.LoanPrincipalByTerm}">
+                <input class="form-control" type="number" placeholder="0 or greater" restrict-input="{type: 'digitsOnly'}" ng-model="$ctrl.review.dollarPrincipalOf31To62DayLoans"
+                       title="{{$ctrl.definitions.d18}}" />
+            </td>
+            <td class="total-column">
+                <span>{{$ctrl.totalDollarLoansByTerm()}}</span>
+            </td>
+        </tr>
+        <tr ng-show="$ctrl.modelState.LoanPrincipalByTerm">
+            <td />
+            <td colspan="6">
+                <ul>
+                    <li class="alert-warning" ng-repeat="error in $ctrl.modelState.LoanPrincipalByTerm">{{error}}</li>
+                </ul>
+            </td>
+        </tr>
+    </tbody>
+</table>

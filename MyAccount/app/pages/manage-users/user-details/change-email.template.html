@@ -1,0 +1,28 @@
+﻿<div>
+    <div class="modal-header">
+        <h3>Update Username</h3>
+    </div>
+
+    <div class="modal-body container">
+        <form name="changeEmailForm" class="container top5">
+            <div class="form-group row">
+                <div class="col-xs-3">
+                    <label class="control-label">Email</label>
+                </div>
+                <div class="col-xs-9">
+                    <input type="email" name="userName" class="form-control has-error"
+                           ng-model="$ctrl.user.userName" required/>
+                    <div ng-messages="changeEmailForm.userName.$error" ng-show="changeEmailForm.userName.$touched" role="alert">
+                        <div ng-message="required">Email is a required field</div>
+                        <div ng-message="email">Please enter a valid email address</div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="modal-footer">
+    <button class="btn btn-default" ng-click="$ctrl.onOkClicked()" ng-disabled="changeEmailForm.$invalid">OK</button>
+    <button class="btn" ng-click="$ctrl.onCancelClicked()">Cancel</button>
+</div>

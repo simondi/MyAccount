@@ -1,0 +1,21 @@
+﻿<div class="panel panel-default">
+    <div class="panel-body">
+        <license-tabs></license-tabs>
+        <div class="container admin-fees">
+            <p ng-hide="ctrl.adminFees.length">No admin fees found</p>
+            <div ng-if="ctrl.adminFees.length" class="col-xs-2 panel panel-default container">
+                <label>Due Date</label>
+                <ul class="nav nav-pills">
+                    <li ng-repeat="fee in ctrl.adminFees" ng-class="{'active': {{fee.id}} == ctrl.selectedFee.id}">
+                        <a href="" ng-click="ctrl.onFeeSelected(fee)" >
+                            {{ctrl.formatDate(fee.paymentDueDate)}}
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-xs-10">
+                <license-admin-fee-details ng-if="ctrl.selectedFee" admin-fee="ctrl.selectedFee" license="ctrl.license"></license-admin-fee-details>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,1 @@
+﻿angular.module('portal.pages.login', ['portal.core.resources.account']);

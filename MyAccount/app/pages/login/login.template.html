@@ -1,0 +1,45 @@
+﻿<form role="form" class="form login">
+    <div class="row">
+        <div class="col-md-4">
+            &nbsp;
+        </div>
+        <div class="col-md-4">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1 class="form-login-heading">Login</h1>
+                </div>
+                <div class="col-md-12">
+                    <input type="text" class="form-control" placeholder="Username (your email address) " ng-model="loginData.userName" required autofocus>
+                </div>
+                <div class="col-md-12">
+                    <input type="password" class="form-control" placeholder="Password" ng-model="loginData.password" required>
+                </div>
+                <div class="col-md-12">
+                    <button class="btn btn-md btn-info btn-block" type="submit" ng-click="login()">Login</button>
+                </div>
+                <div class="col-md-12 loginForget">
+                    <p class="pull-right">
+                        <a ui-sref="forgot-password({email: loginData.userName})">Forgot your password?</a>
+                    </p>
+                </div>
+
+                <div class="col-md-12">
+                    <div ng-hide="message == ''" class="alert alert-danger">
+                        {{message}}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            &nbsp;
+        </div>
+    </div>
+    <hr />
+    <p> &nbsp;&nbsp;&nbsp;  &nbsp;</p>
+    <div class="loginMsg">
+      <h4 >  Welcome to MyAccount, our licensee login portal.  If you are a licensee, 
+          please log in to update your business information, make a submission, or renew your licence. 
+          To return to our homepage, please click on the Consumer Protection BC logo.
+          </h4>
+    </div>
+</form>

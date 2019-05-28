@@ -1,0 +1,1 @@
+angular.module('warp.directives.st-class-if-filtered', []);

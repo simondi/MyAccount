@@ -1,0 +1,1 @@
+angular.module('portal.core.resources.license', ['ngResource']);

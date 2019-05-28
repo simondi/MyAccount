@@ -1,0 +1,1 @@
+angular.module('warp.components.confirm', ['ui.bootstrap']);

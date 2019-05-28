@@ -1,0 +1,20 @@
+﻿<fieldset>
+    <legend>Funeral Services {{$ctrl.license.licenseNumber}} {{$ctrl.license.business.location | fullAddress}}</legend>
+    <renew-pre-arranged renewal-info="$ctrl.renewalInfo" service="funeral"></renew-pre-arranged>
+
+    <div class="form-group">
+        <div class="col-sm-6">
+            <div>
+                <label class="control-label">Current number of stored, cremated remains</label>
+            </div>
+            <input type="number" ng-model="$ctrl.renewalInfo.cremationsStoredTotal" min="0" required />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-sm-6">
+            <input id="adminFeeCheck" type="checkbox" ng-model="$ctrl.renewalInfo.adminFeeAgree" required/>
+            <label for="adminFeeCheck">I have read and agreed to the <a href="app/assets/pdf/Funeral_Administrative Fee Payment Agreement_Online.pdf" target="_blank">terms of the Administration Fee</a></label>
+        </div>
+    </div>
+</fieldset>

@@ -1,0 +1,140 @@
+﻿<div class="panel panel-default">
+    <div class="panel-body">
+        <div>
+            <license-tabs></license-tabs>
+
+            <div class="centreBoxSmall, width-dynamic proba dva" ng-hide="ctrl.canSubmitFinancialReport || ctrl.isNewLicense">
+                Your fiscal year end is {{ctrl.review.fiscalEnd}}. You can submit your financial report after this date
+            </div>
+
+            <div class="centreBoxSmall, width-dynamic proba dva" ng-show="ctrl.isNewLicense">
+                Our records show that you have been licensed for less than one fiscal year and your financial report is not due at this time.
+            </div>
+
+            <div class="centreBoxSmall, width-dynamic proba dva" ng-show="ctrl.canSubmitFinancialReport && !ctrl.isNewLicense">
+                Your fiscal year end is {{ctrl.review.fiscalEnd}}. Your financial report must be sent to us by {{ctrl.review.statementDueDate  | date:'MM/dd/yyyy'}}.
+            </div>
+            <div class="container financial-review">
+                <form name="financialReview" class="form-horizontal scrollable">
+                    <div class="container travel-finance">
+                        <p><H3>Financial Report</H3></p>
+                        <p> Your financial report is for your most recent fiscal year and is due 3 months after your fiscal year end. If you have payments due to the Travel Assurance Fund, they are also due at this time.</p>
+                        <p> This financial report replaces the requirement to submit financial statements. Based on the information you give us, we may still request a copy of your financial statements.</p>
+                        <p>
+                            <b>We strongly encourage you to use a qualified person to prepare this financial report.</b>
+                            <md-tooltip class="custom-tooltip">
+                                Financial statements must be prepared to Canadian standards of generally accepted accounting principles (GAAP) or the
+                                International Financial Reporting standards (IFRS). If you are unsure of the requirements or cannot prepare statements to either of these standards,
+                                we suggest you have the statements prepared by an accounting professional.
+                            </md-tooltip>
+                        </p>
+                        <p><H3>Licensee Financial Information</H3></p>
+                    </div>
+
+                    <div class="form-group" ng-show="ctrl.isReadOnly">
+                        <label class="control-label alert-warning col-xs-10">This form was submitted on {{ctrl.review.submittedOn | date:'MM/dd/yyyy'}} and cannot be edited.</label>
+                    </div>
+                    <fieldset ng-disabled="ctrl.isReadOnly || !ctrl.review.isFiscalYearEndDateCorrect || !ctrl.review.isLicenseTypeCorrect">
+
+                        <div class="smallerSet">
+                            <table class="center licenseStatus" style="border-style: none;">
+                                <tr>
+                                    <td class="keepRight">
+                                        Fiscal Year End
+                                    </td>
+                                    <td>
+                                        {{ctrl.review.fiscalEnd}}
+                                    </td>
+                                    <td class="keepRight">
+                                        Is the fiscal year end correct?
+                                    </td>
+                                    <td>
+                                        <select id="brokerSelect" class="form-control" ng-options="o.value as o.display for o in ctrl.yesNoOptions"
+                                             tabindex="1" auto-next    ng-model="ctrl.review.isFiscalYearEndDateCorrect" ng-change="updateLicense(ctrl.definitions.d8, ctrl.definitions.d9)"></select>
+                                    </td>
+                                </tr>
+                                
+                                <tr>
+                                    <td class="keepRight">
+                                        Financial Statment Due Date
+                                    </td>
+                                    <td>
+                                        {{ctrl.review.statementDueDate  | date:'MM/dd/yyyy'}}
+                                    </td>
+                                    <td colspan="2"> &nbsp;</td>
+                                </tr>
+
+                                <tr>
+                                    <td class="keepRight">
+                                        Licence Type
+                                    </td>
+                                    <td>
+                                        {{ctrl.licenseSubType}}
+                                    </td>
+                                    <td class="keepRight">
+                                        I confirm licence type is correct:
+                                    </td>
+                                    <td>
+                                        <select id="SubTypeSelect" class="form-control" ng-options="o.value as o.display for o in ctrl.yesNoOptions"
+                                             tabindex="2" auto-next    ng-model="ctrl.review.isLicenseTypeCorrect" ng-change="updateLicense(ctrl.definitions.d10, ctrl.definitions.d11)"></select>
+                                    </td>
+                                </tr>
+                                <tr ng-show="ctrl.review.submittedOn">
+                                    <td class="keepRight">
+                                        Report Submitted Dated
+                                    </td>
+                                    <td>
+                                        {{ctrl.review.submittedOn  | date:'MM/dd/yyyy'}}
+                                    </td>
+                                    <td class="keepRight">
+                                        <div ng-show="ctrl.review.rECORDING_DATE"> Date  Reviewed </div>
+                                    </td>
+                                    <td>
+                                        <div ng-show="ctrl.review.rECORDING_DATE"> {{ctrl.review.rECORDING_DATE | date:'MM/dd/yyyy'}}</div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        <p>&nbsp; </p>
+                        <div class="container travel-finance">
+                            <p> You cannot submit your financial report if your fiscal year end is incorrect or if your licence type is incorrect. Please contact us right away if we have the wrong information for you. Failure to report a change in the above information may result in significant processing delays or failure to renew your licence. </p>
+
+                        </div>
+                        <div ng-show="ctrl.canSubmitFinancialReport && !ctrl.isNewLicense">
+                            <travel-agent review="ctrl.review" model-state="ctrl.modelState"  ng-show="ctrl.isTravelAgentOrWholeSeller == 1 && ctrl.review.isFiscalYearEndDateCorrect && ctrl.review.isLicenseTypeCorrect"></travel-agent>
+                            <travel-wholesaler review="ctrl.review" model-state="ctrl.modelState" ng-show="ctrl.isTravelAgentOrWholeSeller == 2 && ctrl.review.isFiscalYearEndDateCorrect && ctrl.review.isLicenseTypeCorrect"></travel-wholesaler>
+                            <travel-mixed review="ctrl.review" model-state="ctrl.modelState" ng-show="ctrl.isTravelAgentOrWholeSeller == 3 && ctrl.review.isFiscalYearEndDateCorrect && ctrl.review.isLicenseTypeCorrect"></travel-mixed>
+                            <travel-onholiday review="ctrl.review" model-state="ctrl.modelState"  ng-show="ctrl.review.isFiscalYearEndDateCorrect && ctrl.review.isLicenseTypeCorrect"></travel-onholiday>
+                        </div>
+                    </fieldset>
+
+                    <p> &nbsp;</p>
+                    <div class="row" ng-show="ctrl.review.isFiscalYearEndDateCorrect && ctrl.review.isLicenseTypeCorrect && ctrl.canSubmitFinancialReport && !ctrl.isNewLicense">
+                        <div class="col-xs-12">
+                            <button type="button" class="btn btn-primary" ng-click="ctrl.submit()" ng-show="ctrl.onHoliday && !ctrl.isReadOnly && ctrl.canSubmitFinancialReport && !ctrl.lateFilingFeeApply">Submit Financial Report</button>
+                            <button type="button" class="btn btn-primary" ng-click="ctrl.submit()" ng-show="!ctrl.onHoliday && !ctrl.isReadOnly && ctrl.canSubmitFinancialReport && !ctrl.IsTAFPaid">Submit Financial Report and Pay TAF Now</button>
+                            <button type="button" class="btn btn-primary" ng-click="ctrl.pay('TAF')" ng-show="!ctrl.onHoliday &&  ctrl.isReadOnly && !ctrl.IsTAFPaid && ctrl.ownTAF">Pay TAF</button>
+                            <button type="button" class="btn btn-primary" ng-click="ctrl.pay('FRLateFiling')" ng-show="ctrl.onHoliday && ctrl.lateFilingFeeApply && !ctrl.IsLateFeePaid &&  !ctrl.isReadOnly">Submit Report and Pay Late Filing Fee</button>
+                            <button type="button" class="btn btn-primary" ng-click="ctrl.pay('FRLateFiling')" ng-show="ctrl.onHoliday && ctrl.lateFilingFeeApply && !ctrl.IsLateFeePaid &&  ctrl.isReadOnly">Pay Late Filing Fee</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<modal id="grossSale">
+    <div class="modal">
+        <div class="modal-body">
+            <h1>A Custom Modal!</h1>
+            <p>
+                Home page text: <input type="text" ng-model="vm.bodyText" />
+            </p>
+            <button ng-click="vm.closeModal('custom-modal-1');">Close</button>
+        </div>
+    </div>
+    <div class="modal-background"></div>
+</modal>
+ 

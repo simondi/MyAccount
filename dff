@@ -1,0 +1,30 @@
+[33mcommit e431a7ea3360034827e271c076cdb35c0be3a01e[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m)[m
+Author: ConsumerProtectionBCuser <kyle.loree@consumerprotectionbc.ca>
+Date:   Tue May 28 09:19:06 2019 -0700
+
+    initial
+
+[33mcommit ff4fe8d92372544ddd6da94827fb8bc1616d8ee6[m
+Merge: d5a17de1 96dceda7
+Author: ConsumerProtectionBCuser <kyle.loree@consumerprotectionbc.ca>
+Date:   Fri May 24 14:47:11 2019 -0700
+
+    Merge remote-tracking branch 'origin/master'
+
+[33mcommit d5a17de1064f23b59fbd1658087cee3c450c7c4d[m
+Author: ConsumerProtectionBCuser <kyle.loree@consumerprotectionbc.ca>
+Date:   Fri May 24 14:44:22 2019 -0700
+
+    INclude gitignore file
+
+[33mcommit a490c59e8f0f150b53755cc3a1db4d3ca7aa48a2[m
+Author: SimonDi <simondi88@hotmail.com>
+Date:   Fri May 24 10:46:04 2019 -0700
+
+    initial
+
+[33mcommit 96dceda76ba72d4896af1945599350eab4ddd927[m[33m ([m[1;31morigin/master[m[33m)[m
+Author: Consumer Protection BC <bill.samra@consumerprotectionbc.ca>
+Date:   Fri May 24 10:11:11 2019 -0700
+
+    Initial commit

@@ -1,0 +1,9 @@
+﻿<ul class="nav nav-pills license-nav">
+    <li ui-sref-active="active" ng-class="{'active' : $parent.ctrl.title === 'License Details'}"><a ui-sref="licenses.details({id: {{$parent.ctrl.license.licenseSeq}}})">Details</a></li>
+    <li ui-sref-active="active" ng-class="{'active' : $parent.ctrl.title === 'Employees'}" ng-show="$parent.$parent.ctrl.showEmployeesTab"><a ui-sref="licenses.individuals({id: {{$parent.ctrl.license.licenseSeq}}})">Employees</a></li>
+    <li ui-sref-active="active" ng-class="{'active' : $parent.ctrl.title === 'Admin Fees'}" ng-show="$parent.$parent.ctrl.showAdminFeesTab"><a ui-sref="licenses.adminFees({id: {{$parent.ctrl.license.licenseSeq}}})">Admin Fees</a></li>
+    <li ui-sref-active="active" ng-class="{'active' : $parent.ctrl.title === 'Financial Review'}" ng-show="$parent.$parent.ctrl.showFinancialReviewTab"><a ui-sref="licenses.financialReview({id: {{$parent.ctrl.license.licenseSeq}}})">Financial Review</a></li>
+    <li ui-sref-active="active" ng-class="{'active' : $parent.ctrl.title === 'Financial Review'}" ng-show="$parent.$parent.ctrl.showAggregateLoanDataTab"><a ui-sref="licenses.financialReview({id: {{$parent.ctrl.license.licenseSeq}}})">Aggregate Loan Data</a></li>
+    <li ui-sref-active="active" ng-class="{'active' : $parent.ctrl.title === 'Travel Finance'}" ng-show="$parent.$parent.ctrl.showTravelFinanceTab"><a ui-sref="licenses.travelFinance({id: {{$parent.ctrl.license.licenseSeq}}})">Your Financial Report</a></li>
+    <li ui-sref-active="active" ng-class="{'active' : $parent.ctrl.title === 'Preneed Submission'}" ng-show="$parent.$parent.ctrl.showPreneedTab"><a ui-sref="licenses.preneed({id: {{$parent.ctrl.license.licenseSeq}}})">Preneed Submission</a></li>
+</ul>

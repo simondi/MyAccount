@@ -1,0 +1,44 @@
+﻿<div class="panel panel-default">
+    <div class="panel-body">
+    <section class="container sideBySideInd">
+        <div class="divLeftInd">
+            <license-tabs></license-tabs>
+        </div>
+        <div class="redFixedLength">
+            This is a list of your current active employees. <br/> Please note at this time employees cannot renew online.
+        </div>
+    </section>
+    <div class="container individuals">
+        <div class="table-responsive" ng-show="ctrl.license.individuals.length">
+            <table st-table="displayed" st-safe-src="ctrl.license.individuals" class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th st-sort="LastName" st-skip-natural="true">Last Name</th>
+                        <th st-sort="FirstAndSecondName" st-skip-natural="true">First and Second Name</th>
+                        <th st-sort="LicenseIssuedDate" st-skip-natural="true">License No.</th>
+                        <th st-sort="LicenseIssuedDate" st-skip-natural="true">License Issued Date</th>
+                        <th st-sort="LicenseExpireDate" st-skip-natural="true">License Expire Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr st-select-row="individual" st-select-mode="single" ng-repeat="individual in displayed">
+                        <td>{{individual.lastName}}</td>
+                        <td>{{individual.firstAndSecondName}}</td>
+                        <td>{{individual.itemSeq}}</td>
+                        <td>{{individual.licenseIssuedDate | date : 'longDate'}}</td>
+                        <td>{{individual.licenseExpireDate | date : 'longDate'}}</td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="5" class="pagination-cell">
+                            <div st-pagination="" st-items-by-page="ctrl.itemsByPage" st-displayed-pages="20"></div>
+                        </td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+        <p ng-hide="ctrl.license.individuals.length">No individual licences found</p>
+    </div>
+    </div>
+</div>

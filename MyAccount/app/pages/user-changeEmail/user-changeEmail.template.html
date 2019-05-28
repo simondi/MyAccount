@@ -1,0 +1,38 @@
+﻿<h1>Change Email: </h1>
+<div class="container">
+    <form name="settingsForm">
+        <div class="row">
+            <div class="form-group col-xs-6">
+                <label class="control-label" for="email">Old Email</label>
+                <input name="email" class="form-control" type="email" placeholder="existing email"  ng-model="ctrl.email"  />
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-xs-6">
+                <label class="control-label" for="email">New Email</label>
+                <input id="newEmail" name="newEmail" class="form-control" type="email" ng-model="ctrl.newEmail"  placeholder="new email"  required />
+                <div ng-messages for="settingsForm.newEmail.$error" ng-if="settingsForm.newEmail.$invalid && settingsForm.newEmail.$touched" class="alert alert-danger">
+                    <div ng-message="required">The new email field is required.  </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-xs-6">
+                <label class="control-label" for="email">Confirm New Email</label>
+                <input id="confirmEmail" name="confirmEmail" class="form-control" type="email"  placeholder="Confirm new email" ng-model="ctrl.confirmEmail" required />
+                <div ng-messages for="settingsForm.confirmNewEmail.$error" ng-if="settingsForm.confirmNewEmail.$invalid && settingsForm.confirmNewEmail.$touched" class="alert alert-danger">
+                    <div ng-message="required">The confirm email field is required.</div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-6">
+                <button class="btn btn-md btn-info pull-right"  type="submit"  ng-click="ctrl.onChangeEmailClicked" ng-disabled="settingsForm.$invalid" >Change Email</button>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="alert alert-danger col-xs-8" ng-if="ctrl.message">{{ctrl.message}}</div>
+        </div>
+    </form>
+</div>

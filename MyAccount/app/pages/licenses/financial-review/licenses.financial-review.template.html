@@ -1,0 +1,135 @@
+﻿<div class="panel panel-default">
+    <div class="panel-body">
+        <license-tabs></license-tabs>
+        <div class="container financial-review" ng-show="ctrl.locations.length == 0 && ctrl.license.licenseTypeSeq !=18 && !$parent.ctrl.ShowDebt">
+            <p><h4>No finance reviews found. </h4></p>
+        </div>
+
+        <div class="container financial-review" ng-show="ctrl.locations.length == 0 && $parent.ctrl.ShowDebt">
+            <p><h4>Currently, we cannot accept Financial Reports through MyAccount. Please remember that your business' financial report is due within 3 months after your fiscal year end date. 
+                You can download the report at the link below and send to our office via mail or email.</h4></p>
+            </p><h4> <a href="https://www.consumerprotectionbc.ca/wordpress/wp-content/uploads/2017/06/DC_Annual_Financial_Report.pdf">Debt collection financial report.</a> </h4></p>
+        </div>
+
+        <div ng-show="ctrl.license.licenseTypeSeq==18" class="container financial-review"  >
+           <travel-finance></travel-finance>
+            </p>
+        </div>
+
+        <div class="container financial-review" ng-show="ctrl.locations.length > 0">
+            <form name="financialReview" class="form-horizontal scrollable">
+                <div>
+                    <p>Aggregated payday loan data must be submitted before you can renew. After you have submitted your data, refresh your screen to renew.</p>
+                    <p>Payday loan data must be submitted for each location individually as well as aggregated data for all locations if you operate multi-branches. This means, head offices are required to submit 2 data reports, 1 report for the head office location and 1 report for all locations.</p>
+                </div>
+
+                <div>
+                    <p>Please note:</p>
+                    <p>1) If your business operates from more than one location, we require loan data for each individual location PLUS consolidated data for all locations. Enter the consolidated data in the Head Office license file.</p>
+                    <p>2) If your business acts as a loan broker for one or more lenders, your business should include all the data for the loans brokered for the lenders and the lenders should not report any data for brokered loans made on their behalf by your business.</p>
+                    <p>3) For loans advanced in one fiscal year but not due until the next fiscal year, you may use either the advance date or the due date to determine in which year to report the loan details but please be consistent from loan to loan and then from year to year. </p>
+                    <p>4) Please refer to the pop-up boxes to determine what data is required for each input box. To see detailed information about the data required in any input box, place your cursor in the box to see the “pop-up” information.</p>
+                    <p>5) Please enter 0 if you have no data to report.</p>
+                    <p>6) Please round to the nearest dollar as decimals are not allowed.</p>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-xs-7" for="location">For location</label>
+                    <div class="col-xs-3 input-group">
+                        <select class="form-control col-xs-2" id="location" ng-model="ctrl.selectedLocation"
+                                ng-options="loc.location for loc in ctrl.locations" ng-change="ctrl.selectedLocationChanged()"></select>
+                    </div>
+                </div>
+
+                <div class="form-group" ng-show="ctrl.isReadOnly">
+                    <label class="control-label alert-warning col-xs-10">This form was submitted on {{ctrl.review.submittedOn | date:'MM/dd/yyyy'}}  and cannot be edited.</label>
+                </div>
+
+                <fieldset ng-disabled="ctrl.isReadOnly">
+                    <div class="form-group">
+                        <label class="control-label col-xs-7" for="loanDataFrom">Loan data from start of fiscal year</label>
+                        <p class="input-group col-xs-3">
+                            <input type="text" class="form-control" id="loanDataFrom"
+                                   ng-model="ctrl.review.loanDataFrom"
+                                   uib-datepicker-popup="{{ctrl.dateFromat}}"
+                                   is-open="ctrl.isLoanStartDatePickerOpen" />
+                            <span class="input-group-btn">
+                                <button type="button" class="btn btn-default" ng-click="ctrl.openLoanStartDatePicker()">
+                                    <i class="glyphicon glyphicon-calendar"></i>
+                                </button>
+                            </span>
+                        </p>
+                    </div>
+                    <div class="row" ng-show="ctrl.modelState.LoanDataFrom">
+                        <ul class="col-xs-6 col-xs-offset-4">
+                            <li class="alert-warning" ng-repeat="error in ctrl.modelState.LoanDataFrom">{{error}}</li>
+                        </ul>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label col-xs-7" for="loanDataFrom">To end of fiscal year</label>
+                        <div class="input-group col-xs-3">
+                            <input type="text" class="form-control" id="loanDataTo" ng-model="ctrl.review.loanDataTo"
+                                   uib-datepicker-popup="{{ctrl.dateFromat}}"
+                                   is-open="ctrl.isLoanEndDatePickerOpen" />
+                            <span class="input-group-btn">
+                                <button type="button" class="btn btn-default" ng-click="ctrl.openLoanEndDatePicker()">
+                                    <i class="glyphicon glyphicon-calendar"></i>
+                                </button>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="row" ng-show="ctrl.modelState.LoanDataTo">
+                        <ul class="col-xs-6 col-xs-offset-4">
+                            <li class="alert-warning" ng-repeat="error in ctrl.modelState.LoanDataTo">{{error}}</li>
+                        </ul>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="brokerSelect" class="control-label col-xs-7">Does your business act as a loan broker for other lenders?</label>
+                        <div class="col-xs-3 input-group">
+                            <select id="brokerSelect" class="form-control" ng-options="o.value as o.display for o in ctrl.yesNoOptions"
+                                    ng-model="ctrl.review.brokerForOtherLenders"></select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="nameOfBroker" class="control-label col-xs-4">If yes, name of lender</label>
+                        <div class="col-xs-6 input-group">
+                            <input id="nameOfBroker" class="form-control" ng-model="ctrl.review.lender" />
+                        </div>
+                    </div>
+                    <div class="row" ng-show="ctrl.modelState.Lender">
+                        <ul class="col-xs-6 col-xs-offset-4">
+                            <li class="alert-warning" ng-repeat="error in ctrl.modelState.Lender">{{error}}</li>
+                        </ul>
+                    </div>
+
+                    <all-loans review="ctrl.review" model-state="ctrl.modelState" definitions="ctrl.definitions"></all-loans>
+
+                    <loans-by-dollar review="ctrl.review" model-state="ctrl.modelState" definitions="ctrl.definitions"></loans-by-dollar>
+
+                    <loans-by-term review="ctrl.review" model-state="ctrl.modelState" definitions="ctrl.definitions"></loans-by-term>
+
+                    <loan-transactions review="ctrl.review" model-state="ctrl.modelState" definitions="ctrl.definitions"></loan-transactions>
+
+                    <ancillary-products review="ctrl.review" model-state="ctrl.modelState" definitions="ctrl.definitions"></ancillary-products>
+
+                    <defaulted-loans review="ctrl.review" model-state="ctrl.modelState" definitions="ctrl.definitions"></defaulted-loans>
+
+                    <loan-fees review="ctrl.review" model-state="ctrl.modelState" definitions="ctrl.definitions"></loan-fees>
+
+                    <loan-borrowers review="ctrl.review" model-state="ctrl.modelState" definitions="ctrl.definitions"></loan-borrowers>
+
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <button type="button" class="btn btn-primary" ng-click="ctrl.saveDraft()">Save Draft</button>
+                            <button type="button" class="btn" ng-click="ctrl.checkForm()">Check Form</button>
+                            <button type="button" class="btn" ng-click="ctrl.submit()">Submit</button>
+                        </div>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+</div>

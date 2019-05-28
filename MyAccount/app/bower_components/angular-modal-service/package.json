@@ -1,0 +1,80 @@
+{
+  "_from": "angular-modal-service",
+  "_id": "angular-modal-service@0.14.1",
+  "_inBundle": false,
+  "_integrity": "sha512-Q35TCzPfPu9PZJy2BSP8224fjTVHCGIMUfXnVmmwyg6xDQL4V1PH6elmlj3h/qgEQwvuonIG2yddDbxsxGScdQ==",
+  "_location": "/angular-modal-service",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "angular-modal-service",
+    "name": "angular-modal-service",
+    "escapedName": "angular-modal-service",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/angular-modal-service/-/angular-modal-service-0.14.1.tgz",
+  "_shasum": "63f6deaeca3e75eb06b49a88325770a616710c07",
+  "_spec": "angular-modal-service",
+  "_where": "C:\\Coding\\IRIS-NEW\\SEPT12\\CPBC-IRIS-SQL\\IRIS\\MyAccount",
+  "author": {
+    "name": "Dave Kerr",
+    "url": "github.com/dwmkerr"
+  },
+  "bugs": {
+    "url": "https://github.com/dwmkerr/angular-modal-service/issues"
+  },
+  "bundleDependencies": false,
+  "deprecated": false,
+  "description": "AngularJS Service for showing Modals and Popups",
+  "devDependencies": {
+    "angular": "1.6.x",
+    "angular-mocks": "1.6.x",
+    "babel-core": "^6.9.1",
+    "babel-loader": "^7.1.2",
+    "babel-preset-es2015": "^6.9.0",
+    "coveralls": "^3.0.0",
+    "isparta-loader": "^2.0.0",
+    "jasmine-core": "^2.4.1",
+    "jshint-stylish": "^2.0.0",
+    "karma": "~2.0.0",
+    "karma-chrome-launcher": "~2.2.0",
+    "karma-coverage": "~1.1.1",
+    "karma-jasmine": "~1.1.1",
+    "karma-junit-reporter": "2.0.x",
+    "karma-phantomjs-launcher": "1.0.x",
+    "karma-webpack": "^2.0.9",
+    "phantomjs-prebuilt": "2.1.x",
+    "uglify-js": "^3.3.9",
+    "webpack": "^3.10.0",
+    "webpack-dev-server": "^2.11.1"
+  },
+  "homepage": "https://github.com/dwmkerr/angular-modal-service",
+  "keywords": [
+    "angular",
+    "angularjs",
+    "modal",
+    "popup"
+  ],
+  "license": "MIT",
+  "main": "./index.js",
+  "name": "angular-modal-service",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/dwmkerr/angular-modal-service.git"
+  },
+  "scripts": {
+    "build": "webpack && uglifyjs ./dst/angular-modal-service.js --compress --mangle -o ./dst/angular-modal-service.min.js --source-map ./dst/angular-modal-service.min.js.map",
+    "coveralls": "cp build/coverage/PhantomJS*/lcov.info lcov.info && node node_modules/coveralls/bin/coveralls.js < lcov.info",
+    "start": "webpack-dev-server --inline --content-base ./samples",
+    "test": "karma start karma.config.js",
+    "test-debug": "karma start karma.config.js --no-single-run --browsers Chrome"
+  },
+  "version": "0.14.1"
+}

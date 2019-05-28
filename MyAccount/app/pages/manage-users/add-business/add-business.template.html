@@ -1,0 +1,13 @@
+﻿<div>
+    <div class="modal-header">
+        <h3>Add Business for {{$ctrl.user.userName}}</h3>
+    </div>
+    <div class="modal-body container">
+        <business-search selected-businesses="$ctrl.selectedBusinesses"></business-search>
+    </div>
+</div>
+
+<div class="modal-footer">
+    <button class="btn btn-default" ng-click="$ctrl.onOkClicked()">OK</button>
+    <button class="btn" ng-click="$ctrl.onCancelClicked()">Cancel</button>
+</div>

@@ -1,0 +1,81 @@
+﻿<fieldset class="renew-license-container">
+    <legend>Cemetery {{$ctrl.license.licenseNumber}} {{$ctrl.license.business.location | fullAddress}}</legend>
+    <renew-pre-arranged renewal-info="$ctrl.renewalInfo" service="cemetery"></renew-pre-arranged>
+    <div class="form-group">
+        <div class="col-sm-12">
+            <label class="control-label">Declaration of internment areas</label>
+            <hr/>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-sm-12">
+            <label class="control-label">Please indicate the actual number of each of the following:</label>
+        </div>
+        <div class="col-sm-4">
+            <div>
+                <label class="control-label">Total acreage for burials</label>
+            </div>
+            <input type="number" min="0" name="burialAcreage" ng-model="$ctrl.renewalInfo.burialAcreage" required/>
+            <div ng-messages for="$ctrl.renewForm.burialAcreage.$error" role="alert" class="alert alert-danger"
+                 ng-if="$ctrl.renewForm.burialAcreage.$invalid && $ctrl.renewForm.burialAcreage.$touched">
+                <div ng-message="required">The total acreage for burials value is required</div>
+                <div ng-message="min">The total acreage for burials value must not be less than zero</div>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div>
+                <label class="control-label">Total columbarium niches</label>
+            </div>
+            <input type="number" min="0" name="columbariumNiches" ng-model="$ctrl.renewalInfo.columbariumNiches" required/>
+            <div ng-messages for="$ctrl.renewForm.columbariumNiches.$error" role="alert" class="alert alert-danger"
+                 ng-if="$ctrl.renewForm.columbariumNiches.$invalid && $ctrl.renewForm.columbariumNiches.$touched">
+                <div ng-message="required">The total columbarium niches value is required</div>
+                <div ng-message="min">The total columbarium niches value must not be less than zero</div>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div>
+                <label class="control-label">Total mausoleum crypts</label>
+            </div>
+            <input type="number" min="0" name="mausoleumCrypts" ng-model="$ctrl.renewalInfo.mausoleumCrypts" required/>
+            <div ng-messages for="$ctrl.renewForm.mausoleumCrypts.$error" role="alert" class="alert alert-danger"
+                 ng-if="$ctrl.renewForm.mausoleumCrypts.$invalid && $ctrl.renewForm.mausoleumCrypts.$touched">
+                <div ng-message="required">The total mausoleum crypts value is required</div>
+                <div ng-message="min">The total mausoleum crypts value must not be less than zero</div>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-sm-12">
+            <label class="control-label">Number of interments performed during the last calendar year (January 1 to December 31):</label>
+        </div>
+        <div class="col-sm-4">
+            <div>
+                <label class="control-label">a) Human remains</label>
+            </div>
+            <input type="number" min="0" name="internmentsHuman" ng-model="$ctrl.renewalInfo.internmentsHuman" required />
+            <div ng-messages for="$ctrl.renewForm.internmentsHuman.$error" role="alert" class="alert alert-danger"
+                 ng-if="$ctrl.renewForm.internmentsHuman.$invalid && $ctrl.renewForm.internmentsHuman.$touched">
+                <div ng-message="required">The human remains value is required</div>
+                <div ng-message="min">The human remains value must not be less than zero</div>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div>
+                <label class="control-label">b) Cremated remains</label>
+            </div>
+            <input type="number" min="0" name="intermentsCremated" ng-model="$ctrl.renewalInfo.internmentsCremated" required/>
+            <div ng-messages for="$ctrl.renewForm.intermentsCremated.$error" role="alert" class="alert alert-danger" 
+                 ng-if="$ctrl.renewForm.intermentsCremated.$invalid && $ctrl.renewForm.intermentsCremated.$touched">
+                <div ng-message="required">The cremated remains value is required</div>
+                <div ng-message="min">The cremated remains value must not be less than zero</div>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div>
+                <label class="control-label">Total</label>
+            </div>
+            <input value="{{$ctrl.totalInternments()}}" readonly />
+        </div>
+    </div>
+</fieldset>

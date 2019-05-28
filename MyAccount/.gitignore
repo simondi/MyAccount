@@ -1,0 +1,4 @@
+.tmp/
+**/*-templates.js
+packages/
+coverage/

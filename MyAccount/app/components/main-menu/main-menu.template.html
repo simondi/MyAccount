@@ -1,0 +1,43 @@
+﻿<nav class="navbar" role="navigation">
+    <div class="container navContainer">
+        <div class="navbar-header">
+            <a class="navbar-brand logo" ng-href="https://www.consumerprotectionbc.ca/">
+                <img src="app/assets/images/logo.png" alt="Consumer Protection BC" />
+            </a>
+            <button class="btn btn-success navbar-toggle" ng-click="navbarExpanded = !navbarExpanded">
+                <span class="glyphicon glyphicon-chevron-down"></span>
+            </button>
+            <div class="welcome" >
+                <span ng-hide="!identityCache.isAuth()">Welcome {{identityCache.identity().userName}}!</span>
+            </div>
+            <div class="collapse navbar-collapse rightDiv" collapse="!navbarExpanded">
+                <div class="pull-right">
+                    <div class="version-info">v.{{version.version}} {{version.branch}}.{{version.build}}.{{version.commit}}</div>
+                </div>
+                <div class="md-menu-demo menudemoCustomTrigger pull-right">
+                    <nav class="navbar navbar-inverse pull-right   menuNav" role="navigation">
+                        <div class="container-menu">
+                            <!-- Collect the nav links, forms, and other content for toggling -->
+                            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                                <ul class="nav navbar-nav navbar-right  menuNav menuNav2">
+                                    <li ng-hide="!identityCache.isAuth()"><a href="" ng-click="logOut()"> Logout  </a></li>
+                                    <li ng-hide="identityCache.isAuth()"> <a ui-sref="login"> Login  </a></li>
+                                    <li ng-hide="!identityCache.isAuth()" class="dropdown">
+                                        <b> Settings </b>
+                                        <ul class="dropdown-content submenu">
+                                            <li ng-hide="identityCache.hasRole('BPCPA')"><a ui-sref="change-passwordEmail">Update username</a></li>
+                                            <li ng-hide="identityCache.hasRole('BPCPA')"><a ui-sref="change-password">Update password</a></li>
+                                        </ul>
+                                    </li>
+                                    <li ng-hide="!hasBusiness()"><a href="" ui-sref="licenses">Home</a></li>
+                                </ul>
+                            </div>
+                            <!-- /.navbar-collapse -->
+                        </div>
+                        <!-- /.container-fluid -->
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>

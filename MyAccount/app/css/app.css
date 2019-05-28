@@ -1,0 +1,703 @@
+body {
+  position: relative;
+  min-height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: "Proxima Nova";
+  color: #555;
+  font-size: 18px;
+  line-height: 22px; 
+}
+
+
+/* 
+    This is turn the nav bar to yellow. It is for Test deployment only.  Comment this out for prod
+*/
+
+.navbar {
+    background-color: yellow;
+}
+ 
+input.ng-invalid.ng-touched {
+  border: 1px solid red;
+}
+input.ng-valid.ng-touched  {
+  border: 1px solid green !important;
+}
+
+/* Center Tooltip and limit the width */
+.custom-tooltip {
+  border-radius: 8px;
+  width:  75%;
+  max-width: 1000px;
+  padding: 5px;
+  left: 50%;
+  margin-left: -100px;
+  z-index: 1071;
+  pointer-events: none;
+}
+
+
+a {
+  color: #003c8f;
+  text-decoration: none; }
+
+h1 {
+  font-size: 30px;
+  line-height: 34px;
+  margin-bottom: 14px;
+  color: #1678ff; }
+
+h2 {
+  font-size: 24px;
+  line-height: 28px;
+  margin-bottom: 14px;
+  color: #1678ff; }
+
+legend {
+  color: #1678ff; }
+
+.container {
+  max-width: 100%;
+  word-wrap: break-word; }
+  .container.financial-review {
+    height: 500px;
+    padding-right: 4px; }
+  .container .scrollable {
+    overflow-y: scroll;
+    height: 500px; }
+.travel-finance {
+    padding-right: 0px; 
+    border: none;
+    width: auto;
+    margin-right: 0px;
+    margin-left: auto;
+  }
+
+header {
+  border-bottom: 20px solid #e2eeff;
+  box-shadow: 0 4px 4px -2px #d7d7d7;
+  padding: 5px 0; }
+  header .navbar {
+    margin-bottom: 0; }
+    header .navbar .navbar-brand.logo {
+      height: 65px;
+      padding: 0; }
+      header .navbar .navbar-brand.logo img {
+        width: 210px; }
+    header .navbar .welcome {
+      max-width: 650px;
+      display: inline-block;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      padding: 24px 80px; 
+    }
+    header .navbar ul {
+      padding: 8px 0; 
+      float: right;
+    }
+      header .navbar ul li {
+        padding: 0 10px; }
+        header .navbar ul li a {
+          color: #555;
+          font-size: 14px;
+          display: inline-block;
+          padding: 0; 
+          float: right;
+        }
+          header .navbar ul li a:hover, header .navbar ul li a:focus {
+            color: blue;
+            background: none; 
+            float: right;
+          }
+
+section.main {
+  padding: 5px 0; }
+
+footer.footer {
+  height: 250px;
+  background: url(../assets/images/footer-swoop-1600.png) no-repeat center bottom;
+  font-size: 14px; 
+}
+  footer.footer .copyright {
+    display: block;
+    position: absolute;
+    top: 210px;
+    left: 58px; 
+  }
+
+form.login input, form.login button {
+  margin-bottom: 10px; }
+
+.top3 {
+  margin-top: 3px; }
+
+.top5 {
+  margin-top: 5px; }
+
+.top7 {
+  margin-top: 7px; }
+
+.top10 {
+  margin-top: 10px; }
+
+.top15 {
+  margin-top: 15px; }
+
+.top17 {
+  margin-top: 17px; }
+
+.top30 {
+  margin-top: 30px; }
+
+.left3 {
+  margin-left: 3px; }
+
+.left5 {
+  margin-left: 5px; }
+
+.left7 {
+  margin-left: 7px; }
+
+.left10 {
+  margin-left: 10px; }
+
+.left15 {
+  margin-left: 15px; }
+
+.left17 {
+  margin-left: 17px; }
+
+.left30 {
+  margin-left: 30px; }
+
+.bottom3 {
+  margin-bottom: 3px; }
+
+.bottom5 {
+  margin-bottom: 5px; }
+
+.bottom7 {
+  margin-bottom: 7px; }
+
+.bottom10 {
+  margin-bottom: 10px; }
+
+.bottom15 {
+  margin-bottom: 15px; }
+
+.bottom17 {
+  margin-bottom: 17px; }
+
+.bottom30 {
+  margin-top: 30px; }
+
+.padding10 {
+  padding: 10px; }
+
+.padding20 {
+  padding: 20px; }
+
+tr.disabled {
+  color: grey; }
+
+.license-nav {
+  margin-bottom: 20px; }
+
+.row.margin-bottom {
+  margin-bottom: 20px; }
+
+.table > tbody > .st-selected {
+  background-color: #c9c9c9; }
+
+.table {
+  cursor: default;
+  font-size: 16px; }
+  .table.sortable th {
+    cursor: pointer; }
+  .table > tfoot > tr > .pagination-cell {
+    padding: 0;
+    border: none; }
+    .table > tfoot > tr > .pagination-cell .row {
+      margin: 0; }
+      .table > tfoot > tr > .pagination-cell .row > div {
+        padding: 0; }
+        .table > tfoot > tr > .pagination-cell .row > div .pagination-div {
+          display: inline-block; }
+          .table > tfoot > tr > .pagination-cell .row > div .pagination-div nav {
+            float: left; }
+            .table > tfoot > tr > .pagination-cell .row > div .pagination-div nav > .pagination {
+              margin: 0;
+              padding: 5px;
+              display: block;
+              font-size: 14px; }
+        .table > tfoot > tr > .pagination-cell .row > div .btn-renew-multiple {
+          margin: 5px; }
+        .table > tfoot > tr > .pagination-cell .row > div .btn-group.filter {
+          margin: 5px; }
+
+.master-view-table {
+  max-height: 400px; }
+
+.st-sort-ascent:before {
+  content: '\25B2'; }
+
+.st-sort-descent:before {
+  content: '\25BC'; }
+
+.navbar > li > a {
+  cursor: pointer; }
+
+.required::after {
+  content: "\00a0*"; }
+
+.address-wrap {
+  white-space: pre-wrap; }
+
+.error-list {
+  list-style: none; }
+
+.alert.validation-error {
+  padding: 6px 10px;
+  margin: 0px; }
+
+fieldset.margin-top {
+  margin-top: 15px; }
+
+/* On Checkout clicked, spinnign wheel */
+button .glyphicon {
+  margin-right: 5px;
+  top: 2px; }
+
+.glyphicon-spin {
+  -webkit-animation: spin 1000ms infinite linear;
+  animation: spin 1000ms infinite linear; }
+
+@-webkit-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg); }
+  100% {
+    -webkit-transform: rotate(359deg);
+    transform: rotate(359deg); } }
+
+@keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg); }
+  100% {
+    -webkit-transform: rotate(359deg);
+    transform: rotate(359deg); } }
+
+/* END of: On Checkout clicked, spinnign wheel */
+
+.btn-upload {
+  position: relative;
+  overflow: hidden; }
+  .btn-upload input {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0;
+    opacity: 0;
+    filter: alpha(opacity=0);
+    /* use '=' here, not ':' */
+    -webkit-transform: translate(-300px, 0) scale(4);
+    -ms-transform: translate(-300px, 0) scale(4);
+    -o-transform: translate(-300px, 0) scale(4);
+    transform: translate(-300px, 0) scale(4);
+    font-size: 23px;
+    direction: ltr;
+    cursor: pointer; }
+
+* html .btn-upload {
+  line-height: 24px;
+  margin: 1px -3px 0 0; }
+
+* + html .btn-upload {
+  padding: 2px 15px;
+  margin: 1px 0 0 0; }
+
+.renew-license-container {
+  background-color: #e7e7e7;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding-left: 10px;
+  padding-top: 1px;
+  padding-right: 10px;
+  padding-bottom: 10px; }
+  .renew-license-container hr {
+    border-color: darkgray; }
+
+.small-pagination ul {
+  margin: 0; }
+
+.highlight-search {
+  background-color: cornsilk; }
+
+.separator-below {
+  border-bottom-style: solid;
+  border-bottom-color: darkgray;
+  border-bottom-width: 1px;
+  padding-bottom: 10px; }
+
+table.business-search {
+  table-layout: fixed; }
+  table.business-search thead {
+    width: 100%;
+    display: block; }
+  table.business-search tfoot {
+    width: 100%;
+    display: block; }
+  table.business-search tbody {
+    width: 100%;
+    display: block;
+    overflow-y: auto;
+    overflow-x: hidden;
+    height: 250px; }
+  table.business-search div {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-word; }
+  table.business-search .column-select {
+    width: 30px; }
+  table.business-search .column-business {
+    width: 200px; }
+  table.business-search .column-email {
+    width: 200px; }
+  table.business-search .column-license-num {
+    width: 100px; }
+  table.business-search .column-type {
+    width: 134px; }
+  table.business-search .column-state {
+    width: 100px; }
+  table.business-search .small-pagination {
+    width: 732px; }
+  table.business-search .page-summary {
+    width: 234px; }
+
+.version-info {
+  font-size: 11px; 
+  width: 80px;
+  float: right !important;
+}
+
+.admin-fee-details input[type=number] {
+  max-width: 116px; }
+
+
+.admin-fee-details .fee-item {
+  font-size: 15px; }
+
+.admin-fee-details .fee-total {
+  width: 116px;
+  text-align: center;
+  border-style: solid;
+  border-width: 2px;
+  border-color: #333;
+  padding-top: 5px; 
+}
+
+.admin-fee-details button {
+  min-width: 100px; }
+
+.financial-review {
+  margin: 20px; }
+
+.financial-review th {
+    border-color: black;
+    border-width: 1px;
+    border-style: solid;
+    padding: 10px; }
+.financial-review td {
+    border-color: black;
+    border-width: 1px;
+    border-style: solid;
+    padding: 10px; }
+
+.financial-review td.entry-column {
+      background-color: lightgray; }
+
+.financial-review td.total-column span {
+      display: block;
+      min-width: 7em;
+      border: 1px solid #ccc;
+      padding: 6px 12px;
+      background-color: #eee;
+      border-radius: 4px; 
+}
+
+.sideBySideInd {
+    width: 100%;
+    height: 60px;
+    margin: auto;
+    padding: 5px, 10px,0,0;
+}
+.divLeftInd {
+    width: 50%;
+    height: 50px;
+    float: left;
+}
+
+.redFixedLength {
+    float: right;
+    padding: 5px;
+    background-color: #E2EEFF;
+    border: 1px solid black;
+    color: black;
+    width: 46%  
+}
+
+.centreBox {
+    padding: 5px;
+    background-color: #E2EEFF;
+    border: 1px solid black;
+    font-weight: bold;
+    color: black;
+    width: 49%;
+    margin: 10px auto
+}
+
+.centreBoxSmall {
+    padding: 2px;
+    align-self: center;
+    background-color: #E2EEFF;
+    border: 1px solid black;
+    color: black;
+    margin: 5px auto;
+    min-width: 50%;
+    max-width: 85%;
+}
+
+
+:-ms-input-placeholder  {
+    font-size: 0.8em;
+    color: coral;
+}
+ 
+::-webkit-input-placeholder {
+    font-size: 0.8em;
+    color: coral;
+}
+
+:-moz-placeholder  {
+    font-size: 0.8em;
+    color: coral;
+}
+
+.warning {
+    font-size: 0.8em;
+    color:  red;
+    font-weight: bold;
+    text-align: right;
+    padding-right: 60pt;
+}
+
+.navbar-inverse {
+    background-color: #ffffff;
+    border-color: #ffffff;
+}
+
+
+/* Dropdown menu */
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 150px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content li {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+        color: red;
+}
+
+.navbar-collapse {
+    width: 380px;
+    padding: 0;
+}
+
+.navbar-right {
+    margin: 0;
+    padding: 0;
+}
+
+.rightDiv {
+    float: right;
+    width: 400px;
+}
+
+.rightDiv > div {
+    float: right;
+    display: block;
+    width: 390px;
+    vertical-align: top;
+}
+
+.navbar-inverse .navbar-nav > li > a {
+    font-family: "Proxima Nova";
+    color: #555;
+    font-size: 18px;
+    line-height: 22px;
+}
+
+.navbar-inverse .navbar-nav > li > a:hover {
+    color: blue;
+}
+
+.navContainer {
+    width: 1270px;
+}
+ 
+
+.menuNav {
+    width: 380px;
+}
+
+.menuNav >li   {
+    float: right;
+    font-family: "Proxima Nova";
+    color: #555;
+    font-size: 18px;
+    line-height: 22px;
+    font-weight: bold;
+}
+
+
+.submenu > li  {
+    float: right;
+    font-family: "Proxima Nova";
+    color: #555;
+    font-size: 12px;
+    line-height: 16px;
+}
+
+.menuNav2  li  a:hover {
+    color: red;
+    float: left;
+}
+
+ a:hover {
+    color: blue;
+}
+
+.navbar-header {
+     width: 1250px;
+ }
+
+.md-tooltip{
+    background-color: #E2EEFF !important;
+    color: black !important;
+    font-size:18px !important;
+    border: 1px solid black !important;
+    font-weight: bold !important;
+    margin: 5px 5px  !important;
+    padding: 4px 4px !important;
+    position: absolute !important;
+  }
+
+
+/* add horizontal space between textboxes */
+.rowForm {
+    margin: 5px 0 !important;
+    display: block !important;
+}
+
+/* hide login message if it is a popup*/
+.modal-body .loginMsg  {
+    display: none;
+}
+
+.modal-body   .loginForget {
+    display: none;
+}
+
+/* Center popup modal in the window (session expires, then login) */
+.center-modal {
+    position: fixed;
+    top: 20%;
+    left: 18.5%;
+    z-index: 1050;
+    width: 80%;
+    height: 80%;
+    margin-left: -9%;
+}
+
+
+.travel-finance_info td {
+    margin-left: 10pt;
+    padding-left: 20pt;
+     color: blue;
+     font-size: 15pt;
+}
+
+.back-color-red  {
+    background-color: red;
+}
+
+.smallerSet {
+    line-height: 1pt;
+    font-size: 12pt;
+}
+
+.control-label-A {
+    margin-top: 0;
+    margin-bottom: 0;
+    vertical-align: middle;
+    text-align: right;
+  }
+
+.alignRight {
+    text-align: right;
+}
+
+table.center {
+    width: 90%;
+    margin-left:5%; 
+    margin-right:5%;
+}
+
+.securityTB td {
+    margin: 0, 20px;
+    padding: 0, 20px;
+}
+
+table .keepRight {
+    text-align: right;
+    font-weight: bold;
+}
+
+.licenseStatus td, th {
+    border-collapse:collapse!important;
+    border:none !important;
+    border-style: none !important;
+    margin: 1px 20px !important;
+    padding: 1px 10px !important;
+    font-size: 13pt;
+    background-color: #E2EEFF;
+    height: 27px;
+}
+
+tr.ng-scope:hover {
+    cursor: pointer;
+}
+ 

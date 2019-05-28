@@ -1,0 +1,30 @@
+﻿<table class="row table-responsive financial-review">
+    <thead>
+    <tr>
+        <th>Enter the total for all the loans (collected or not) for the fiscal year</th>
+        <th>Principal of all loans</th>
+        <th>Cost of borrowing charged for all loans</th>
+    </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Total $ amount </td>
+            <td class="entry-column" ng-class="{'has-error': $ctrl.modelState.TotalDollarsOfLoans}">
+                <input class="form-control" type="number" placeholder="0 or greater" restrict-input="{type: 'digitsOnly'}" ng-model="$ctrl.review.totalDollarsOfLoans"
+                       title="{{$ctrl.definitions.d1}}" />
+            </td>
+            <td class="entry-column">
+                <input class="form-control" type="number" placeholder="0 or greater" restrict-input="{type: 'digitsOnly'}" ng-model="$ctrl.review.totalDollarsCostOfCredit"
+                       title="{{$ctrl.definitions.d2}}" />
+            </td>
+        </tr>
+    <tr ng-show="$ctrl.modelState.TotalDollarsOfLoans">
+        <td/>
+        <td colspan="4">
+            <ul>
+                <li class="alert-warning" ng-repeat="error in $ctrl.modelState.TotalDollarsOfLoans">{{error}}</li>
+            </ul>
+        </td>
+    </tr>
+    </tbody>
+</table>

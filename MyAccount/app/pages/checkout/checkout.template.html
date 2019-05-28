@@ -1,0 +1,115 @@
+<div class="container">
+    <form class="form-horizontal" name="paymentForm" novalidate>
+        <fieldset class="margin-top">
+            <legend>Order Summary</legend>
+            <div class="row">
+                <div class="col-sm-9">
+                    <table class="table table-bordered">
+                        <tr ng-repeat="item in ctrl.order.items">
+                            <td>{{item.description}} ({{item.quantity}} x {{item.amount | currency }})</td>
+                            <td>{{item.amount * item.quantity| currency}}</td>
+                        </tr>
+                        <tr class="active">
+                            <td><strong>Total</strong></td>
+                            <td><strong>{{ctrl.order.totalAmount | currency}}</strong></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </fieldset>
+        <fieldset>
+            <legend>Payment Details</legend>
+            <div class="row">
+                <div class="col-sm-9">
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label" for="cardHolderName">Name on Card</label>
+                        <div class="col-sm-4">
+                            <input ng-model="ctrl.paymentInfo.cardHolderName" id="cardHolderName" name="cardHolderName" type="text" class="form-control" placeholder="Card Holder's Name" required>
+                        </div>
+                        <div class="col-sm-3">
+                            <div ng-messages="paymentForm.cardHolderName.$error" role="alert" class="validation-error alert alert-danger" ng-if="paymentForm.cardHolderName.$invalid && paymentForm.cardHolderName.$touched">
+                                <div ng-message="required">Name on Card required</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label" for="cardNumber">Card Number</label>
+                        <div class="col-sm-4">
+                            <input ng-model="ctrl.paymentInfo.cardNumber" id="cardNumber" name="cardNumber" type="text" class="form-control" placeholder="Credit Card Number" required>
+                        </div>
+                        <div class="col-sm-3">
+                            <div ng-messages="paymentForm.cardNumber.$error" role="alert" class="validation-error alert alert-danger" ng-if="paymentForm.cardNumber.$invalid && paymentForm.cardNumber.$touched">
+                                <div ng-message="required">Card Number required</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label" for="cardExpiryMonth">Expiration Date</label>
+                        <div class="col-sm-2">
+                            <select ng-model="ctrl.paymentInfo.cardExpiryMonth" id="cardExpiryMonth" name="cardExpiryMonth" class="form-control col-sm-2" required>
+                                <option value="01">Jan (01)</option>
+                                <option value="02">Feb (02)</option>
+                                <option value="03">Mar (03)</option>
+                                <option value="04">Apr (04)</option>
+                                <option value="05">May (05)</option>
+                                <option value="06">June (06)</option>
+                                <option value="07">July (07)</option>
+                                <option value="08">Aug (08)</option>
+                                <option value="09">Sep (09)</option>
+                                <option value="10">Oct (10)</option>
+                                <option value="11">Nov (11)</option>
+                                <option value="12">Dec (12)</option>
+                            </select>
+                        </div>
+                        <div class="col-sm-2">
+                            <select ng-model="ctrl.paymentInfo.cardExpiryYear" id="cardExpiryYear" name="cardExpiryYear" class="form-control" required>
+                                <option value="18">2018</option>
+                                <option value="19">2019</option>
+                                <option value="20">2020</option>
+                                <option value="21">2021</option>
+                                <option value="22">2022</option>
+                                <option value="23">2023</option>
+                                <option value="24">2024</option>
+                                <option value="25">2025</option>
+                                <option value="26">2026</option>
+                                <option value="27">2027</option>
+                                <option value="28">2028</option>
+                            </select>
+                        </div>
+                        <div class="col-sm-3">
+                            <div ng-messages="paymentForm.cardExpiryMonth.$error" role="alert" class="validation-error alert alert-danger" ng-if="paymentForm.cardExpiryMonth.$invalid && paymentForm.cardExpiryMonth.$touched">
+                                <div ng-message="required">Expiration Date required</div>
+                            </div>
+                            <div ng-messages="paymentForm.cardExpiryYear.$error" role="alert" class="validation-error alert alert-danger" ng-if="!paymentForm.cardExpiryMonth.$invalid && paymentForm.cardExpiryYear.$invalid && paymentForm.cardExpiryYear.$touched">
+                                <div ng-message="required">Expiration Date required</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label" for="cardNumber">CVV</label>
+                        <div class="col-sm-2">
+                            <input ng-model="ctrl.paymentInfo.cvv2" id="cvv2" name="cvv2" type="text" class="form-control" placeholder="CVV" required maxlength="4">
+                        </div>
+                        <div class="col-sm-offset-2 col-sm-3">
+                            <div ng-messages="paymentForm.cvv2.$error" role="alert" class="validation-error alert alert-danger" ng-if="paymentForm.cvv2.$invalid && paymentForm.cvv2.$touched">
+                                <div ng-message="required">CVV required</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-6">
+                            <button ng-disabled="ctrl.isProcessing" type="button" class="btn" ng-click="ctrl.cancel()">Cancel</button>
+                            <button ng-disabled="paymentForm.$invalid || ctrl.isProcessing" type="button" class="btn btn-primary" ng-click="ctrl.confirmAndPay()">
+                                <span ng-show="ctrl.isProcessing"><i class="glyphicon glyphicon-refresh glyphicon-spin"></i></span>
+                                {{ctrl.payButtonText}}
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+        <div class="row margin-bottom" ng-if="ctrl.message">
+            <div class="alert alert-danger col-sm-6">{{ctrl.message}}</div>
+        </div>
+    </form>
+</div>

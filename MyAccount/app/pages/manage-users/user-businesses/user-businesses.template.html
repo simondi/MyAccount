@@ -1,0 +1,33 @@
+﻿<div class="container top10">
+    <table st-table="displayed" st-safe-src="$ctrl.businesses" class="table table-bordered">
+        <thead>
+        <tr>
+            <th>Remove</th>
+            <th>Business</th>
+            <th>Head Office</th>
+            <th>License #</th>
+            <th>Type</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="business in $ctrl.businesses" ng-class="{'disabled': business.isAuthorizedViaHeadOffice}">
+            <td>
+                <input type="checkbox" ng-if="!business.isAuthorizedViaHeadOffice" ng-click="$ctrl.onBusinessSelected(business)"/>
+            </td>
+            <td>{{$ctrl.businessName(business)}}</td>
+            <td>{{business.headOffice ? business.headOffice.businessName : business.businessName}}</td>
+            <td>{{$ctrl.licenseNumbers(business)}}</td>
+            <td>{{$ctrl.licenseTypes(business)}}</td>
+        </tr>
+        </tbody>
+    </table>
+
+    <div class="row top10">
+        <div class="col-xs-3">
+            <button type="button" class="btn" ng-disabled="!$ctrl.selectedBusinesses.length" ng-click="$ctrl.onRemoveSelected()">Remove Selected Businesses</button>
+        </div>
+        <div class="col-xs-3">
+            <button type="button" class="btn" ng-click="$ctrl.onClickAddBusiness()">Add Businesses</button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,72 @@
+﻿<fieldset class="margin-top">
+    <legend>Complete the Following Information</legend>
+    <div class="form-group">
+        <div class="col-sm-12">
+            <p>Since your last application, have there been changes in senior corporate officers?</p>
+            <p>
+                <strong>If YES, please complete and submit a Notice of Change, Corporate Officers form and include supporting documents.<br />Your application for renewal will not be processed until this is received.</strong>
+            </p>
+        </div>
+        <div class="col-sm-1">
+            <label>
+                <input type="radio" ng-model="$ctrl.renewalInfo.officerChanges" ng-value="true" />
+                Yes
+            </label>
+        </div>
+        <div class="col-sm-1">
+            <label>
+                <input type="radio" ng-model="$ctrl.renewalInfo.officerChanges" ng-value="false" />
+                No
+            </label>
+        </div>
+    </div>
+    <hr/>
+
+    <div class="form-group" ng-hide="$ctrl.isMotionPicture">
+        <div class="col-sm-12">
+            <p>Since your last application, have there been any material changes to the beneficial ownership of shares of the company?</p>
+            <p>
+                <strong>If YES, please complete and submit a Notice of Change, Purchase of Business form and include supporting documents.<br />Your application for renewal will not be processed until this is received.</strong>
+            </p>
+        </div>
+        <div class="col-sm-1">
+            <label>
+                <input type="radio" ng-model="$ctrl.renewalInfo.ownershipChanges" ng-value="true" />
+                Yes
+            </label>
+        </div>
+        <div class="col-sm-1">
+            <label>
+                <input type="radio" ng-model="$ctrl.renewalInfo.ownershipChanges" ng-value="false" />
+                No
+            </label>
+        </div>
+    </div>
+    <hr ng-hide="$ctrl.isMotionPicture"/>
+    <div class="form-group">
+        <div class="col-sm-12">
+            <p>Since your last application, have you, any partner or any senior corporate officer been convicted of a criminal offence?</p>
+            <p>
+                <strong>
+                    If YES, the person convicted of a criminal offence must complete an online criminal record check by going to the following link:
+                    <a href="http://www.sterlingtalentsolutions.ca/Consumer-Protection-BC" target="_blank">http://www.sterlingtalentsolutions.ca/Consumer-Protection-BC</a>
+                    and following the instructions for completion.
+                    Once complete, a copy will be sent directly to Consumer Protection BC. For more information, please visit our website.
+                    <br />Please note, your application for renewal will not be processed until this is received.
+                </strong>
+            </p>
+        </div>
+        <div class="col-sm-1">
+            <label>
+                <input type="radio" ng-model="$ctrl.renewalInfo.criminalConviction" ng-value="true" />
+                Yes
+            </label>
+        </div>
+        <div class="col-sm-1">
+            <label>
+                <input type="radio" ng-model="$ctrl.renewalInfo.criminalConviction" ng-value="false" />
+                No
+            </label>
+        </div>
+    </div>
+</fieldset>

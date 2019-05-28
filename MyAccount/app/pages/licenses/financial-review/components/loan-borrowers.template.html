@@ -1,0 +1,58 @@
+﻿<table class="table-responsive financial-review">
+    <thead>
+        <tr>
+            <th>The number of loans each individual borrower was given during fiscal year</th>
+            <th>1 loan</th>
+            <th>2 to 5 loans</th>
+            <th>6 to 10 loans</th>
+            <th>11 to 15 loans</th>
+            <th>16 or more loans</th>
+            <th>Totals for all loans</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Total # of loans</td>
+            <td class="entry-column" ng-class="{'has-error': $ctrl.modelState.LoanNumbersByBorrower}">
+                <input class="form-control" type="number" placeholder="0 or greater" restrict-input="{type: 'digitsOnly'}" ng-model="$ctrl.review.numberOfBorrowersWithOneLoan"
+                       title="{{$ctrl.definitions.d35}}" />
+            </td>
+            <td class="entry-column" ng-class="{'has-error': $ctrl.modelState.LoanNumbersByBorrower}">
+                <input class="form-control" type="number" placeholder="0 or greater" restrict-input="{type: 'digitsOnly'}" ng-model="$ctrl.review.numberOfBorrowersWith2To5Loans"
+                       title="{{$ctrl.definitions.d36}}" />
+            </td>
+            <td class="entry-column" ng-class="{'has-error': $ctrl.modelState.LoanNumbersByBorrower}">
+                <input class="form-control" type="number" placeholder="0 or greater" restrict-input="{type: 'digitsOnly'}" ng-model="$ctrl.review.numberOfBorrowersWith6To10Loans"
+                       title="{{$ctrl.definitions.d37}}" />
+            </td>
+            <td class="entry-column" ng-class="{'has-error': $ctrl.modelState.LoanNumbersByBorrower}">
+                <input class="form-control" type="number" placeholder="0 or greater" restrict-input="{type: 'digitsOnly'}" ng-model="$ctrl.review.numberOfBorrowersWith11To15Loans"
+                       title="{{$ctrl.definitions.d38}}" />
+            </td>
+            <td class="entry-column" ng-class="{'has-error': $ctrl.modelState.LoanNumbersByBorrower}">
+                <input class="form-control" type="number" placeholder="0 or greater" restrict-input="{type: 'digitsOnly'}" ng-model="$ctrl.review.numberOfBorrowersWithGreaterThan15Loans"
+                       title="{{$ctrl.definitions.d39}}" />
+            </td>
+            <td class="total-column">
+                <span>{{$ctrl.totalLoansByBorrower()}}</span>
+            </td>
+        </tr>
+        <tr ng-show="$ctrl.modelState.LoanNumbersByBorrower">
+            <td />
+            <td colspan="6">
+                <ul>
+                    <li class="alert-warning" ng-repeat="error in $ctrl.modelState.LoanNumbersByBorrower">{{error}}</li>
+                </ul>
+            </td>
+        </tr>
+    </tbody>
+</table><!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+</head>
+<body>
+
+</body>
+</html>

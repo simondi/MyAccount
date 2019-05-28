@@ -1,0 +1,26 @@
+{
+  "name": "chai-spies",
+  "main": "chai-spies.js",
+  "homepage": "https://github.com/chaijs/chai-spies",
+  "authors": [
+    "Jake Luer <jake@alogicalparadox.com>"
+  ],
+  "description": "Spies for the Chai assertion library.",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "lib",
+    "support",
+    "test"
+  ],
+  "version": "0.7.1",
+  "_release": "0.7.1",
+  "_resolution": {
+    "type": "version",
+    "tag": "0.7.1",
+    "commit": "9309677747faae40badb5219d1ef41d039273a60"
+  },
+  "_source": "https://github.com/chaijs/chai-spies.git",
+  "_target": "^0.7.1",
+  "_originalSource": "chai-spies"
+}

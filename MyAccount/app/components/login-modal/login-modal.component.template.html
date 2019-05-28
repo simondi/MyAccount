@@ -1,0 +1,18 @@
+﻿<div class="modal-header">
+    <h1 class="form-login-heading">Login</h1>
+</div>
+<form name="loginForm">
+    <div class="modal-body">
+        <p><h4>Your session has expired or you have not logged in yet.</h4></p>
+        <p><h4>Please login to continue.</h4></p>
+        <p> &nbsp; </p>
+        <div class="row">
+            <div class="col-xs-8 col-xs-offset-2">
+                <login on-login="$ctrl.loginSucceeded()" on-forgot-password="$ctrl.forgotPassword(userName)"/>
+            </div>
+        </div>
+        <div class="modal-footer">
+            &nbsp;
+        </div>
+    </div>
+</form>

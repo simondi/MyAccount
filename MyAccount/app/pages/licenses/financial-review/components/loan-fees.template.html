@@ -1,0 +1,26 @@
+﻿<table class="table-responsive financial-review">
+    <thead>
+        <tr>
+            <th>Default fees charged and collected for all the loans made during fiscal year </th>
+            <th>Dishonoured payment fees </th>
+            <th>Interest charged on remaining principal of defaulted loans</th>
+            <th>Totals for default fees charged and collected</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Total $ amount collected </td>
+            <td class="entry-column">
+                <input class="form-control" type="number" placeholder="0 or greater" restrict-input="{type: 'digitsOnly'}" ng-model="$ctrl.review.dollarAmountofDishonouredPaymentFees"
+                       title="{{$ctrl.definitions.d33}}" />
+            </td>
+            <td class="entry-column">
+                <input class="form-control" type="number" placeholder="0 or greater" restrict-input="{type: 'digitsOnly'}" ng-model="$ctrl.review.dollarOfInterestCharged"
+                       title="{{$ctrl.definitions.d34}}" />
+            </td>
+            <td class="total-column">
+                <span>{{$ctrl.defaultFeesTotal()}}</span>
+            </td>
+        </tr>
+    </tbody>
+</table>

@@ -1,0 +1,87 @@
+﻿<fieldset>
+    <legend>Crematorium {{$ctrl.license.licenseNumber}} {{$ctrl.license.business.location | fullAddress}}</legend>
+
+    <div class="form-group">
+        <div class="col-md-12">
+            <label class="control-label pull-left">Number of cremations performed from June 1 of the previous year to May 31 of this year</label>
+        </div>
+        <div class="col-md-3">
+            <label class="control-label">Adult</label>
+            <input name="adult" ng-model="$ctrl.renewalInfo.cremationsAdult" type="number" class="form-control" required min="0"/>
+            <div ng-messages for="$ctrl.renewForm.adult.$error" role="alert" class="alert alert-danger"
+                 ng-if="$ctrl.renewForm.adult.$invalid && $ctrl.renewForm.adult.$touched">
+                <div ng-message="required">The adult value is required</div>
+                <div ng-message="min">The adult value must not be less than zero</div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <label class="control-label">Child</label>
+            <input name="child" ng-model="$ctrl.renewalInfo.cremationsChild" type="number" class="form-control" required min="0"/>
+            <div ng-messages for="$ctrl.renewForm.child.$error" role="alert" class="alert alert-danger"
+                 ng-if="$ctrl.renewForm.child.$invalid && $ctrl.renewForm.child.$touched">
+                <div ng-message="required">The child value is required</div>
+                <div ng-message="min">The child value must not be less than zero</div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <label class="control-label">Infant</label>
+            <input name="infant" ng-model="$ctrl.renewalInfo.cremationsInfant" type="number" class="form-control" required min="0"/>
+            <div ng-messages for="$ctrl.renewForm.infant.$error" role="alert" class="alert alert-danger"
+                 ng-if="$ctrl.renewForm.infant.$invalid && $ctrl.renewForm.infant.$touched">
+                <div ng-message="required">The infant value is required</div>
+                <div ng-message="min">The infant value must not be less than zero</div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <label class="control-label">Indigent</label>
+            <input name="indigent" ng-model="$ctrl.renewalInfo.cremationsIndigent" type="number" class="form-control" required min="0"/>
+            <div ng-messages for="$ctrl.renewForm.indigent.$error" role="alert" class="alert alert-danger"
+                 ng-if="$ctrl.renewForm.indigent.$invalid && $ctrl.renewForm.indigent.$touched">
+                <div ng-message="required">The indigent value is required</div>
+                <div ng-message="min">The indigent value must not be less than zero</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-12">
+            <label class="control-label pull-left">Status of cremated remains:</label>
+        </div>
+        <div class="col-md-6">
+            <label class="control-label">Returned to relative or funeral director</label>
+            <input name="returned" ng-model="$ctrl.renewalInfo.cremationsReturned" type="number" class="form-control" required min="0"/>
+            <div ng-messages for="$ctrl.renewForm.returned.$error" role="alert" class="alert alert-danger"
+                 ng-if="$ctrl.renewForm.returned.$invalid && $ctrl.renewForm.returned.$touched">
+                <div ng-message="required">The returned to relative value is required</div>
+                <div ng-message="min">The returned to relative value must not be less than zero</div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <label class="control-label">Placed in storage this year</label>
+            <input name="stored" ng-model="$ctrl.renewalInfo.cremationsStoredThisYeas" type="number" class="form-control" required min="0"/>
+            <div ng-messages for="$ctrl.renewForm.stored.$error" role="alert" class="alert alert-danger"
+                 ng-if="$ctrl.renewForm.stored.$invalid && $ctrl.renewForm.stored.$touched">
+                <div ng-message="required">The placed in storage value is required</div>
+                <div ng-message="min">The placed in storage value must not be less than zero</div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <label class="control-label">Scattered</label>
+            <input name="scattered" ng-model="$ctrl.renewalInfo.cremationsScattered" type="number" class="form-control" required min="0"/>
+            <div ng-messages for="$ctrl.renewForm.scattered.$error" role="alert" class="alert alert-danger"
+                 ng-if="$ctrl.renewForm.scattered.$invalid && $ctrl.renewForm.scattered.$touched">
+                <div ng-message="required">The scattered value is required</div>
+                <div ng-message="min">The scattered value must not be less than zero</div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <label class="control-label">Total now in storage</label>
+            <input name="storage" ng-model="$ctrl.renewalInfo.cremationsStoredTotal" type="number" class="form-control" required min="0"/>
+            <div ng-messages for="$ctrl.renewForm.storage.$error" role="alert" class="alert alert-danger"
+                 ng-if="$ctrl.renewForm.storage.$invalid && $ctrl.renewForm.storage.$touched">
+                <div ng-message="required">The total now in storage value is required</div>
+                <div ng-message="min">The total now in storage value must not be less than zero</div>
+            </div>
+        </div>
+    </div>
+</fieldset>

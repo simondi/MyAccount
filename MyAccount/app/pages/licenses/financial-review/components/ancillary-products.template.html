@@ -1,0 +1,74 @@
+﻿<table class="table-responsive financial-review">
+    <thead>
+        <tr>
+            <th>Ancillary loan products issued or sold to borrowers for additional costs during fiscal year</th>
+            <th>Debit cards issued with loans</th>
+            <th>Prepaid credit cards issued with loans</th>
+            <th>Bank accounts sold with loans</th>
+            <th>Loan protection insurance policies sold with loans</th>
+            <th>Totals for all ancillary loan products sold or issued </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Total # of issued or sold products</td>
+            <td class="entry-column" ng-class="{'has-error': $ctrl.modelState.AncillaryTotalNum}">
+                <input class="form-control" type="number" placeholder="0 or greater" restrict-input="{type: 'digitsOnly'}" ng-model="$ctrl.review.numberOfDebitCardsIssued"
+                       title="{{$ctrl.definitions.d21}}" />
+            </td>
+            <td class="entry-column" ng-class="{'has-error': $ctrl.modelState.AncillaryTotalNum}">
+                <input class="form-control" type="number" placeholder="0 or greater" restrict-input="{type: 'digitsOnly'}" ng-model="$ctrl.review.numberOfCreditCardsIssued"
+                       title="{{$ctrl.definitions.d22}}" />
+            </td>
+            <td class="entry-column" ng-class="{'has-error': $ctrl.modelState.AncillaryTotalNum}">
+                <input class="form-control" type="number" placeholder="0 or greater" restrict-input="{type: 'digitsOnly'}" ng-model="$ctrl.review.numberOfBankAccountsSold"
+                       title="{{$ctrl.definitions.d23}}" />
+            </td>
+            <td class="entry-column" ng-class="{'has-error': $ctrl.modelState.AncillaryTotalNum}">
+                <input class="form-control" type="number" placeholder="0 or greater" restrict-input="{type: 'digitsOnly'}" ng-model="$ctrl.review.numberOfInsurancePoliciesSold" /
+                title="{{$ctrl.definitions.d24}}">
+            </td>
+            <td class="total-column">
+                <span>{{$ctrl.ancillaryNumTotal()}}</span>
+            </td>
+        </tr>
+        <tr ng-show="$ctrl.modelState.AncillaryTotalNum">
+            <td />
+            <td colspan="5">
+                <ul>
+                    <li class="alert-warning" ng-repeat="error in $ctrl.modelState.AncillaryTotalNum">{{error}}</li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td>Total $ amount of issued or sold products </td>
+            <td class="entry-column" ng-class="{'has-error': $ctrl.modelState.AncillaryTotalDollars}">
+                <input class="form-control" type="number" placeholder="0 or greater" restrict-input="{type: 'digitsOnly'}" ng-model="$ctrl.review.dollarOfDebitCardsIssued"
+                       title="{{$ctrl.definitions.d25}}" />
+            </td>
+            <td class="entry-column" ng-class="{'has-error': $ctrl.modelState.AncillaryTotalDollars}">
+                <input class="form-control" type="number" placeholder="0 or greater" restrict-input="{type: 'digitsOnly'}" ng-model="$ctrl.review.dollarOfCreditCardsIssued"
+                       title="{{$ctrl.definitions.d26}}" />
+            </td>
+            <td class="entry-column" ng-class="{'has-error': $ctrl.modelState.AncillaryTotalDollars}">
+                <input class="form-control" type="number" placeholder="0 or greater" restrict-input="{type: 'digitsOnly'}" ng-model="$ctrl.review.dollarOfBankAccountsSold"
+                       title="{{$ctrl.definitions.d27}}" />
+            </td>
+            <td class="entry-column" ng-class="{'has-error': $ctrl.modelState.AncillaryTotalDollars}">
+                <input class="form-control" type="number" placeholder="0 or greater" restrict-input="{type: 'digitsOnly'}" ng-model="$ctrl.review.dollarOfInsurancePoliciesSold"
+                       title="{{$ctrl.definitions.d28}}" />
+            </td>
+            <td class="total-column">
+                <span>{{$ctrl.ancillaryDollarsTotal()}}</span>
+            </td>
+        </tr>
+        <tr ng-show="$ctrl.modelState.AncillaryTotalDollars">
+            <td />
+            <td colspan="5">
+                <ul>
+                    <li class="alert-warning" ng-repeat="error in $ctrl.modelState.AncillaryTotalDollars">{{error}}</li>
+                </ul>
+            </td>
+        </tr>
+    </tbody>
+</table>

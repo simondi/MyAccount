@@ -1,0 +1,51 @@
+﻿<table class="table-responsive financial-review">
+    <thead>
+        <tr>
+            <th>Enter the totals for all the loans during fiscal year</th>
+            <th>Defaulted loans (paid later or not paid)</th>
+            <th>Uncollectable loans (written off)</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Total # of loans</td>
+            <td class="entry-column" ng-class="{'has-error': $ctrl.modelState.NumberOfDefaultedLoans}">
+                <input class="form-control" type="number" placeholder="0 or greater" restrict-input="{type: 'digitsOnly'}" ng-model="$ctrl.review.numberOfDefaultedLoans"
+                       title="{{$ctrl.definitions.d29}}" />
+            </td>
+            <td class="entry-column" ng-class="{'has-error': $ctrl.modelState.NumberOfLoansWrittenOff}">
+                <input class="form-control" type="number" placeholder="0 or greater" restrict-input="{type: 'digitsOnly'}" ng-model="$ctrl.review.numberOfLoansWrittenOff"
+                       title="{{$ctrl.definitions.d31}}" />
+            </td>
+        </tr>
+        <tr ng-show="$ctrl.modelState.NumberOfDefaultedLoans || $ctrl.modelState.NumberOfLoansWrittenOff">
+            <td />
+            <td colspan="2">
+                <ul>
+                    <li class="alert-warning" ng-repeat="error in $ctrl.modelState.NumberOfDefaultedLoans">{{error}}</li>
+                    <li class="alert-warning" ng-repeat="error in $ctrl.modelState.NumberOfLoansWrittenOff">{{error}}</li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td>Total $ amount </td>
+            <td class="entry-column" ng-class="{'has-error': $ctrl.modelState.DollarAmountofDefaultedLoans}">
+                <input class="form-control" type="number" placeholder="0 or greater" restrict-input="{type: 'digitsOnly'}" ng-model="$ctrl.review.dollarAmountofDefaultedLoans"
+                       title="{{$ctrl.definitions.d30}}" />
+            </td>
+            <td class="entry-column" ng-class="{'has-error': $ctrl.modelState.DollarAmountofLoansWritenOff}">
+                <input class="form-control" type="number" placeholder="0 or greater" restrict-input="{type: 'digitsOnly'}" ng-model="$ctrl.review.dollarAmountofLoansWritenOff"
+                       title="{{$ctrl.definitions.d32}}" />
+            </td>
+        </tr>
+        <tr ng-show="$ctrl.modelState.DollarAmountofDefaultedLoans || $ctrl.modelState.DollarAmountofLoansWritenOff">
+            <td />
+            <td colspan="2">
+                <ul>
+                    <li class="alert-warning" ng-repeat="error in $ctrl.modelState.DollarAmountofDefaultedLoans">{{error}}</li>
+                    <li class="alert-warning" ng-repeat="error in $ctrl.modelState.DollarAmountofLoansWritenOff">{{error}}</li>
+                </ul>
+            </td>
+        </tr>
+    </tbody>
+</table>

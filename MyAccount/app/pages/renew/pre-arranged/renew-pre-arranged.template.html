@@ -1,0 +1,39 @@
+﻿<div class="form-group">
+    <div class="col-sm-12">
+        <label class="control-label">Do you sell pre-arranged {{$ctrl.service}} services?</label>
+    </div>
+    <div class="col-sm-1">
+        <label>
+            <input type="radio" ng-model="$ctrl.renewalInfo.preArrangedServices" ng-value="true"
+                   ng-required="!$ctrl.renewalInfo.preArrangedServices" />
+            Yes
+        </label>
+    </div> 
+    <div class="col-sm-1">
+        <label>
+            <input type="radio" ng-model="$ctrl.renewalInfo.preArrangedServices" ng-value="false"
+                   ng-required="!$ctrl.renewalInfo.preArrangedServices" />
+            No
+        </label>
+    </div>
+</div>
+
+<fieldset class="form-group" ng-disabled="!$ctrl.renewalInfo.preArrangedServices">
+    <div class="col-sm-12">
+        <label class="control-label">If YES, do you use:</label>
+    </div>
+    <div class="col-sm-4">
+        <label>
+            <input type="checkbox" ng-model="$ctrl.renewalInfo.trustAccount"
+                   ng-required="$ctrl.renewalInfo.preArrangedServices && !$ctrl.renewalInfo.insuranceContract" />
+            Preneed trust account
+        </label>
+    </div>
+    <div class="col-sm-4">
+        <label>
+            <input type="checkbox" ng-model="$ctrl.renewalInfo.insuranceContract"
+                   ng-required="$ctrl.renewalInfo.preArrangedServices && !$ctrl.renewalInfo.trustAccount" />
+            Insurance contract
+        </label>
+    </div>
+</fieldset>

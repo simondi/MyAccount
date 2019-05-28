@@ -1,0 +1,42 @@
+﻿<div class="panel panel-default">
+    <div class="panel-body">
+        <license-tabs></license-tabs>
+        <div class="container preneed">
+            <UL>If you offer preneed cemetery or funeral services, you must annually submit a preneed financial report within 3 months of your fiscal year end.</UL>
+            <UL>
+                The report must include the account information for each preneed contract for the previous fiscal year including: </br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&#9679; &nbsp;client name and address </br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&#9679; &nbsp;client contract date</br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&#9679; &nbsp;total sale price</br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&#9679; &nbsp;amount received or held at the beginning of the year</br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&#9679; &nbsp;monies received during the year (scheduled payments or new accounts)</br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&#9679; &nbsp;amount placed in trust</br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&#9679; &nbsp;monies paid out including cancellations, refunds and monies converted at need </br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&#9679; &nbsp;year-end balance (total amount received, placed in trust and interest credited)</br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&#9679; &nbsp;investment account number</br>
+            </UL>
+            <UL> Preneed financial reports must meet our requirements and incomplete reports will not be processed. If you submit your report more than 3 months after your fiscal year-end date, you will be charged a late fee.  </br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&#9679; &nbsp; <a href="https://youtu.be/sencxbwKp6M" rel="noopener noreferrer" target="_blank"> <u> Watch our tutorial video on how to fill out the preneed financial report template (trust)</u> </a> </br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  o  &nbsp;  <a href="https://www.consumerprotectionbc.ca/wordpress/wp-content/uploads/2018/07/Preneed-Trust-Reporting-Template.xlsx"> <u> Submit your preneed financial report (trust) using this report template  </u>  </a> </br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&#9679; &nbsp; <a href="https://youtu.be/1_6NpFhslR4" rel="noopener noreferrer" target="_blank"> <u> Watch our tutorial video on how to fill out the preneed financial report template (insurance) </u>  </a> </br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  o  &nbsp;  <a href="https://www.consumerprotectionbc.ca/wordpress/wp-content/uploads/2018/08/Preneed-Insurance-Reporting-Template.xlsx"> <u>Submit your preneed financial report (insurance) using this report template </u>  </a>
+            </UL>
+
+            <fieldset class="row margin-bottom" ng-disabled="ctrl.uploadInProgress" ng-if="ctrl.canUploadPreneed">
+                <div class="col-md-12">
+                    <label class="control-label">Upload your preneed financial report(s) for fiscal year: &nbsp;&nbsp; </label>
+                    <select ng-model="ctrl.preneedFiscalYear" ng-options="year for year in ctrl.fiscalYears" ng-change="ctrl.onFiscalYearChanged()"></select> &nbsp;&nbsp;
+                    <!-- Angular Upload button doesn't support ng-disabled, so we show a disabled ordinary button
+                    if the user has not yet selected a fiscal year, and replace it with the upload buttton when
+                    a selection has been made -->
+                    <button ng-if="!ctrl.preneedFiscalYear" class="btn btn-primary" disabled>Upload</button>
+                    <upload-button ng-if="!ctrl.uploadInProgress && ctrl.preneedFiscalYear"
+                                   class="btn btn-primary btn-upload" url="{{ctrl.uploadUrl}}"
+                                   on-upload="ctrl.onUpload(files)" on-complete="ctrl.onComplete(response)"
+                                   on-error="ctrl.onError(response)" on-success="ctrl.onSuccess(response)">Upload</upload-button>
+                    <span ng-if="ctrl.uploadInProgress"><i class="glyphicon glyphicon-refresh glyphicon-spin"></i>Uploading...</span>
+                </div>
+            </fieldset>
+        </div>
+    </div>
+</div>

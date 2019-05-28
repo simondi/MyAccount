@@ -1,0 +1,1 @@
+﻿angular.module('portal.interceptors.auth-failure', ['portal.components.login-modal']);

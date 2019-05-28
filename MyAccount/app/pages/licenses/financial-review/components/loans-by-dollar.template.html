@@ -1,0 +1,65 @@
+﻿<table class="table-responsive financial-review">
+    <thead>
+        <tr>
+            <th>The principal of all the loans made during fiscal year (collected or not)</th>
+            <th>Loans with principal of $0-$500</th>
+            <th>Loans with principal of $501-$1,000</th>
+            <th>Loans with principal of $1,001-$1,500</th>
+            <th>Totals for all loans</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Total # of loans</td>
+            <td class="entry-column" ng-class="{'has-error': $ctrl.modelState.LoanNumbersByDollar}">
+                <input class="form-control" type="number" placeholder="0 or greater" restrict-input="{type: 'digitsOnly'}" ng-model="$ctrl.review.numberLoans_0To500Dollars"
+                       title="{{$ctrl.definitions.d3}}" />
+            </td>
+            <td class="entry-column" ng-class="{'has-error': $ctrl.modelState.LoanNumbersByDollar}">
+                <input class="form-control" type="number" placeholder="0 or greater" restrict-input="{type: 'digitsOnly'}" ng-model="$ctrl.review.numberLoans_501To1000Dollars"
+                       title="{{$ctrl.definitions.d4}}" />
+            </td>
+            <td class="entry-column" ng-class="{'has-error': $ctrl.modelState.LoanNumbersByDollar}">
+                <input class="form-control" type="number" placeholder="0 or greater" restrict-input="{type: 'digitsOnly'}" ng-model="$ctrl.review.numberLoans_1001To1500Dollars"
+                       title="{{$ctrl.definitions.d5}}" />
+            </td>
+            <td class="total-column">
+                <span>{{$ctrl.totalLoansByDollar()}}</span>
+            </td>
+        </tr>
+        <tr ng-show="$ctrl.modelState.LoanNumbersByDollar">
+            <td />
+            <td colspan="4">
+                <ul>
+                    <li class="alert-warning" ng-repeat="error in $ctrl.modelState.LoanNumbersByDollar">{{error}}</li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td>Total $ amount</td>
+            <td class="entry-column" ng-class="{'has-error': $ctrl.modelState.LoanPrincipalByDollar}">
+                <input class="form-control" type="number" ng-model="$ctrl.review.dollarPrincipalOf0To500DollarLoans" 
+                       title="{{$ctrl.definitions.d6}}"/>
+            </td>
+            <td class="entry-column" ng-class="{'has-error': $ctrl.modelState.LoanPrincipalByDollar}">
+                <input class="form-control" type="number" ng-model="$ctrl.review.dollarPrincipalOf501To1000DollarLoans" 
+                       title="{{$ctrl.definitions.d7}}"/>
+            </td>
+            <td class="entry-column" ng-class="{'has-error': $ctrl.modelState.LoanPrincipalByDollar}">
+                <input class="form-control" type="number" ng-model="$ctrl.review.dollarPrincipalOf1001To1500DollarLoans" 
+                       title="{{$ctrl.definitions.d8}}"/>
+            </td>
+            <td class="total-column">
+                <span>{{$ctrl.totalDollarLoansByDollar()}}</span>
+            </td>
+        </tr>
+        <tr ng-show="$ctrl.modelState.LoanPrincipalByDollar">
+            <td />
+            <td colspan="4">
+                <ul>
+                    <li class="alert-warning" ng-repeat="error in $ctrl.modelState.LoanPrincipalByDollar">{{error}}</li>
+                </ul>
+            </td>
+        </tr>
+    </tbody>
+</table>

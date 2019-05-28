@@ -1,0 +1,85 @@
+﻿<div>
+    <form>
+        <div class="row top3">
+            <div class="col-xs-3">
+                <label>Business Name</label>
+            </div>
+            <div class="col-xs-3">
+                <input type="text" ng-model="$ctrl.search.businessName"/>
+            </div>
+        </div>
+        <div class="row top3">
+            <div class="col-xs-3">
+                <label>Business Email</label>
+            </div>
+            <div class="col-xs-3">
+                <input type="text" ng-model="$ctrl.search.businessEmail"/>
+            </div>
+        </div>
+        <div class="row top3">
+            <div class="col-xs-3">
+                <label>License Number</label>
+            </div>
+            <div class="col-xs-3">
+                <input type="text" ng-model="$ctrl.search.licenseNumber"/>
+            </div>
+        </div>
+        <div class="row top3">
+            <div class="col-xs-3">
+                <label>License Type</label>
+            </div>
+            <div class="col-xs-3">
+                <select type="text" ng-model="$ctrl.search.licenseTypeId" ng-options="type.id as type.description for type in $ctrl.licenseTypes"></select>
+            </div>
+        </div>
+        <div class="row top3">
+            <div class="col-xs-3">
+                <label>License Status</label>
+            </div>
+            <div class="col-xs-6">
+                <select type="text" ng-model="$ctrl.search.licenseStatusCode" ng-options="status.code as (status.code + ' ' + status.description) for status in $ctrl.licenseStatuses"></select>
+            </div>
+        </div>
+        <div class="row top3">
+            <div class="col-xs-2">
+                <button class="btn" ng-click="$ctrl.onSearchClicked(tableRefresh)">Search</button>
+            </div>
+            <div class="col-xs-10">
+                <span class="top10 pull-right">{{$ctrl.selectedBusinesses.length}} businesses selected</span>
+            </div>
+        </div>
+    </form>
+
+    <table st-table="$ctrl.businesses" st-pipe="$ctrl.refreshBusinesses" class="top10 table table-bordered business-search" st-refresh>
+        <thead>
+        <tr>
+            <th><input class="column-select" type="checkbox" ng-click="$ctrl.selectAll()" ng-model="$ctrl.allSelected" /></th>
+            <th><div class="column-business">Business</div></th>
+            <th><div class="column-email">Business Email</div></th>
+            <th><div class="column-license-num">License #</div></th>
+            <th><div class="column-type">Type</div></th>
+            <th><div class="column-state">State</div></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="business in $ctrl.businesses">
+            <td><input class="column-select" type="checkbox" ng-model="$ctrl.selectedBusinesses" selected-business-formatter="{{business.businessSeq}}"/></td>
+            <td><div class="column-business">{{$ctrl.businessName(business)}}</div></td>
+            <td><div class="column-email">{{business.email}}</div></td>
+            <td><div class="column-license-num">{{$ctrl.licenseNumbers(business)}}</div></td>
+            <td><div class="column-type">{{$ctrl.licensTypes(business)}}</div></td>
+            <td><div class="column-state">{{$ctrl.licensStates(business)}}</div></td>
+        </tr>
+        </tbody>
+        <tfoot>
+        <tr>
+            <td colspan="3" class="text-center">
+                <div st-pagination class="small-pagination" st-items-by-page="$ctrl.itemsPerPage" st-displayed-pages="7"></div>
+            </td>
+            <td colspan="2" class="text-right">
+                <st-page-summary class="page-summary" is-loading="$ctrl.isRefreshing"></st-page-summary>
+            </td>
+        </tr>
+        </tfoot>
+    </table>
+</div>

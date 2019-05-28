@@ -1,0 +1,38 @@
+﻿<h1>User Settings</h1>
+<div class="container">
+    <form name="settingsForm">
+        <div class="row">
+            <div class="form-group col-xs-6">
+                <label class="control-label" for="email">Old Email</label>
+                <input id="email" name="email" class="form-control" type="email" ng-model="ctrl.email" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-xs-6">
+                <label class="control-label" for="email">New Email</label>
+                <input id="email" name="email" class="form-control" type="email" ng-model="ctrl.newEmail" required />
+                <div ng-messages for="settingsForm.email.$error" ng-if="settingsForm.email.$invalid && settingsForm.email.$touched" class="alert alert-danger">
+                    <div ng-message="required">The email field is required.  </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-xs-6">
+                <label class="control-label" for="email">Confirm New Email</label>
+                <input id="email" name="email" class="form-control" type="email" ng-model="ctrl.confirmnewEmail" required />
+                <div ng-messages for="settingsForm.email.$error" ng-if="settingsForm.email.$invalid && settingsForm.email.$touched" class="alert alert-danger">
+                    <div ng-message="required">The confirm email field is required.</div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-6">
+                <button class="btn btn-md btn-info pull-right" ng-disabled="settingsForm.$pristine || settingsForm.$invalid" ng-click="ctrl.onChangeEmailClicked(settingsForm)">Change</button>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="alert alert-danger col-xs-8" ng-if="ctrl.message">{{ctrl.message}}</div>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,28 @@
+﻿<table class="table-responsive financial-review">
+    <thead>
+        <tr>
+            <th>The transactions for all the loans made during fiscal year</th>
+            <th>Loan advances made</th>
+            <th>Loan repayments received </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Total # of transactions</td>
+            <td class="entry-column" ng-class="{'has-error': $ctrl.modelState.NumberOfAdvancesMade}">
+                <input class="form-control" type="number" placeholder="0 or greater" restrict-input="{type: 'digitsOnly'}" ng-model="$ctrl.review.numberOfAdvancesMade" title="{{$ctrl.definitions.d19}}" />
+            </td>
+            <td class="entry-column">
+                <input class="form-control" type="number" placeholder="0 or greater" restrict-input="{type: 'digitsOnly'}" ng-model="$ctrl.review.numberOfRepaymentsAccepted" title="{{$ctrl.definitions.d20}}" />
+            </td>
+        </tr>
+        <tr ng-show="$ctrl.modelState.NumberOfAdvancesMade">
+            <td />
+            <td colspan="6">
+                <ul>
+                    <li class="alert-warning" ng-repeat="error in $ctrl.modelState.NumberOfAdvancesMade">{{error}}</li>
+                </ul>
+            </td>
+        </tr>
+    </tbody>
+</table>

@@ -1,0 +1,43 @@
+<div class="container">
+    <div class="row margin-bottom" ng-if="ctrl.message">
+        <div class="alert alert-danger col-xs-8">{{ctrl.message}}</div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <h1>Licence Renewal</h1>
+            <p>
+                The personal information requested in this form and the results of the Criminal Record check are collected and retained under the authority of Section 26 (c) of the <i>BC Freedom of Information and Protection of Privacy Act</i> and Section 144 of the <i>Business Practices and Consumer Protection Act</i>. This information will be used to determine eligibility for licensing in the Province of British Columbia, Canada.
+            </p>
+            <p>
+                Consumer Protection BC does not refund licence application fees and charges, or contributions to compensation funds. All payments are exempt from taxes.
+            </p>
+        </div>
+    </div>
+    <form class="form-horizontal" name="renewForm" novalidate>
+        <renew-summary licenses="ctrl.licenses"></renew-summary>
+        <renew-corporate renewal-info="ctrl.renewalInfo" is-motion-picture="ctrl.licenses[0].isMotionPictureLicense"></renew-corporate>
+        <div ng-repeat="license in ctrl.licenses" class="renew-license-container">
+            <renew-crematorium license="license"
+                               renewal-info="ctrl.renewalInfo.licenseRenewalInfo[license.licenseSeq]"
+                               ng-if="license.licenseTypeDesc == 'Crematorium'"></renew-crematorium>
+            <renew-cemetery license="license"
+                            renewal-info="ctrl.renewalInfo.licenseRenewalInfo[license.licenseSeq]"
+                            ng-if="license.licenseTypeDesc == 'Cemetery'"></renew-cemetery>
+            <renew-funeral license="license"
+                           renewal-info="ctrl.renewalInfo.licenseRenewalInfo[license.licenseSeq]"
+                           ng-if="license.licenseTypeDesc == 'Funeral Services'"></renew-funeral>
+            <renew-telemarketer license="license"
+                                renewal-info="ctrl.renewalInfo.licenseRenewalInfo[license.licenseSeq]"
+                                ng-if="license.licenseTypeDesc == 'Telemarketer'"></renew-telemarketer>
+        </div>
+
+        <renew-declaration renewal-info="ctrl.renewalInfo"></renew-declaration>
+
+        <div class="form-group">
+            <div class="col-sm-12">
+                <button type="button" class="btn" ng-click="ctrl.cancel()">Cancel</button>
+                <button ng-disabled="!ctrl.canCheckout()" type="button" class="btn btn-primary" ng-click="ctrl.checkout()">Continue</button>
+            </div>
+        </div>
+</form>
+</div>

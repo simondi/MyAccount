@@ -1,0 +1,79 @@
+﻿
+    <p><h3> Security</h3></p>
+    <table class="row table-responsive travel-finance center">
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td class="alignRight">
+                    Total gross sales as a travel agency for all BC locations, for your most recent fiscal year 
+                    </br> <a href="" ng-click="$parent.ctrl.onClickForPopup('app/pages/licenses/travel-finance/popups/total-grossTA.html')"> How to calculate total gross sales.</a>    
+                </td>
+                <td class="entry-column">
+                    <input class="form-control" type="number" placeholder="0 or greater" restrict-input="{type: 'digitsOnly'}" ng-blur="$parent.ctrl.calculateTAF()"
+                            tabindex="3" auto-next ng-required="$parent.ctrl.isTravelAgentOrWholeSeller == 1" ng-model="$ctrl.review.totalGrossSaleTA" title="{{$ctrl.definitions.d3}}" />
+                </td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td class="alignRight">Required security for your travel agence (Note: we will notify you if more security is required) 
+                    </br> <a href="" ng-click="$parent.ctrl.onClickForPopup('app/pages/licenses/travel-finance/popups/security1.html')"> What are the security requirements for a travel agent?</a>  
+                </td>
+                <td class="total-column">
+                    <span>{{$ctrl.requiredSecurityTA()}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td class="alignRight">Do you have a subordination agreement for your shareholder loan?</td>
+                <td class="total-column">
+                    <div class="col-xs-12 input-group">
+                        <select id="brokerSelect" class="form-control" ng-options="o.value as o.display for o in $parent.ctrl.yesNoOptions"
+                             tabindex="4" auto-next  ng-model="$ctrl.review.subordinationAgreement"></select>
+                    </div>
+                </td>
+
+            </tr>
+            <tr>
+                <td>4</td>
+                <td class="alignRight">Business income after tax for the most recent fiscal year </td>
+                <td class="entry-column">
+                    <input class="form-control" type="number"  restrict-input="{type: 'intergersOnly'}" 
+                            tabindex="5" auto-next ng-required="$parent.ctrl.isTravelAgentOrWholeSeller == 1" ng-model="$ctrl.review.reportIncome" title="{{$ctrl.definitions.d5}}" />
+                </td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td class="alignRight"> Working capital based on your most recent fiscal year  </td>
+                <td class="entry-column">
+                    <input class="form-control" type="number" restrict-input="{type: 'intergersOnly'}" 
+                            tabindex="6" auto-next ng-required="$parent.ctrl.isTravelAgentOrWholeSeller == 1" ng-model="$ctrl.review.workingCapital" title="{{$ctrl.definitions.d6}}" />
+                </td>
+            </tr>
+            <tr>
+                <td>6</td>
+                <td class="alignRight"> Total assets based on your most recent fiscal year </td>
+                <td class="entry-column">
+                    <input class="form-control" type="number" placeholder="0 or greater" restrict-input="{type: 'digitsOnly'}" 
+                            tabindex="7" auto-next ng-required="$parent.ctrl.isTravelAgentOrWholeSeller == 1" ng-model="$ctrl.review.totalAssets" title="{{$ctrl.definitions.d6}}" />
+                </td>
+            </tr>
+            <tr>
+                <td>7</td>
+                <td class="alignRight">Total liability based on your most recent fiscal year </td>
+                <td class="entry-column">
+                    <input class="form-control" type="number" placeholder="0 or greater" restrict-input="{type: 'digitsOnly'}" 
+                           tabindex="8" auto-next ng-required="$parent.ctrl.isTravelAgentOrWholeSeller == 1" ng-model="$ctrl.review.totalLiabilities" title="{{$ctrl.definitions.d7}}" />
+                </td>
+
+            </tr>
+            <tr>
+                <td>8</td>
+                <td class="alignRight">Total equity based on your most recent fiscal year </td>
+                <td class="total-column"  >
+                    <span>{{$ctrl.totalEquity()}}</span>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+

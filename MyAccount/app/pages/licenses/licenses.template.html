@@ -1,0 +1,63 @@
+<div class="container">
+    <h1>My Business Licences</h1>
+    <div class="centreBox">
+        Click on the individual licence number for further options below.
+    </div>
+    <div class="table-responsive">
+        <table st-table="displayed" st-safe-src="ctrl.licenses" class="table table-bordered sortable">
+            <thead>
+            <tr>
+                <th class="text-center">Renew</th>
+                <th st-sort="licenseNumber" st-skip-natural="true">Licence Number</th>
+                <th st-sort="licenseTypeDesc" st-skip-natural="true">Licence Type</th>
+                <th st-sort="licenseStatusDesc" st-skip-natural="true">Licence Status</th>
+                <th st-sort="businessAddress" st-skip-natural="true">Location</th>
+                <th st-sort="licenseIssueDate" st-skip-natural="true" st-sort-default="true">Licence Issue Date</th>
+                <th st-sort="expiryDate" st-skip-natural="true" st-sort-default="true">Expiry Date</th>
+            </tr>
+            </thead>
+            <tbody>
+                <tr st-select-row="license" st-select-mode="single" st-select-notifier="ctrl.onSelect" ng-repeat="license in displayed">
+                    <td class="text-center">
+                        <input type="checkbox" ng-model="license.isSelectedForRenewal" ng-disabled="!license.isRenewable"  ng-click="ctrl.renewCheckboxClicked($event)" />
+                        <md-tooltip class="custom-tooltip">
+                            {{(license.isRenewable ? 'Add to renewals' : 'This licence cannot be renewed at this time. If you have questions about the status of your licence, please contact our Licensing team for further information. 1-888-564-9963.')}}
+                        </md-tooltip>
+                    </td>
+                    <td>{{license.licenseNumber}}</td>
+                    <td>{{license.licenseTypeDesc}}</td>
+                    <td>{{license.licenseStatusDesc}}</td>
+                    <td>{{license.business.location | streetAddress}}</td>
+                    <td>{{license.licenseIssueDate | stringToDate:"MMMM d, y"}}</td>
+                    <td>{{license.expiryDate | stringToDate:"MMMM d, y"}}</td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="7" class="pagination-cell">
+                        <div class="row">
+                            <div class="col-md-3 text-left">
+                                <button ng-show="ctrl.licensesToRenew().length > 0" type="button" class="btn btn-primary btn-renew-multiple"
+                                        ng-click="ctrl.renew()" ng-disabled="ctrl.hasDiferentLicenseTypesSelected()">Renew {{ctrl.licensesToRenew().length}} Licences</button>
+                            </div>
+                            <div class="col-md-6 text-center">
+                                <div st-pagination="" st-items-by-page="ctrl.itemsByPage" class="pagination-div"></div>
+                            </div>
+                            <div class="col-md-3 text-right">
+                                <div class="btn-group filter" ng-show="false">
+                                    <label class="btn btn-primary" ng-model="ctrl.filter.status" uib-btn-radio="'all'" ng-click="ctrl.filterLicenses()">All</label>
+                                    <label class="btn btn-primary" ng-model="ctrl.filter.status" uib-btn-radio="'active'" ng-click="ctrl.filterLicenses()">Active</label>
+                                    <label class="btn btn-primary" ng-model="ctrl.filter.status" uib-btn-radio="'inactive'" ng-click="ctrl.filterLicenses()">Inactive</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="alert alert-warning row" ng-if="ctrl.hasDiferentLicenseTypesSelected()">
+                            Cannot renew multiple licenses with different license types. Please renew them individually.
+                        </div>
+                    </td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+    <div ui-view></div>
+</div>

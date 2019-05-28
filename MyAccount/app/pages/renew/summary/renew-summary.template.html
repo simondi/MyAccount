@@ -1,0 +1,30 @@
+﻿<fieldset class="margin-top">
+    <legend>Confirm the Following Information</legend>
+    <div class="table-responsive">
+        <table ng-hide="!$ctrl.licenses" st-table="displayed" st-safe-src="$ctrl.licenses" class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Licence Number</th>
+                    <th>Business Name</th>
+                    <th>Licence Type</th>
+                    <th>Location</th>
+                    <th>Expiry Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="license in displayed">
+                    <td>{{license.licenseNumber}}</td>
+                    <td>{{license.business.businessName}}</td>
+                    <td>{{license.licenseTypeDesc}}</td>
+                    <td>{{license.business.location | fullAddress}}</td>
+                    <td>{{license.expiryDate |stringToDate:"MMMM d, y" }}</td>
+                </tr>
+            </tbody>
+            <tfoot>
+            </tfoot>
+        </table>
+        <p>
+            If there have been changes to the above information, please <a href="{{$ctrl.businessChangeFormLink($ctrl.licenses[0])}}" target="_blank">download</a> and complete a change of business information form.
+        </p>
+    </div>
+</fieldset>
