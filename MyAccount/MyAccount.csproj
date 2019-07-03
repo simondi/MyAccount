@@ -1569,7 +1569,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>32176</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost/MyAccount4</IISUrl>
+          <IISUrl>http://localhost</IISUrl>
           <OverrideIISAppRootUrl>True</OverrideIISAppRootUrl>
           <IISAppRootUrl>http://localhost/MyAccount4</IISAppRootUrl>
           <NTLMAuthentication>False</NTLMAuthentication>

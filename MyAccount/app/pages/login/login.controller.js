@@ -8,6 +8,8 @@
                 password: ''
             };
 
+            window.location.href = "/login";
+
             $scope.message = '';
 
             $scope.login = function () {
