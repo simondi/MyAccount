@@ -8,7 +8,7 @@
                 password: ''
             };
 
-            window.location.href = "/login";
+            // window.location.href = "/login";
 
             $scope.message = '';
 

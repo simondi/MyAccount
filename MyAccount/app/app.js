@@ -215,7 +215,10 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider, $http
         }
     ];
 
-    $urlRouterProvider.otherwise('/login');
+    //$urlRouterProvider.otherwise('/login');
+    $urlRouterProvider.otherwise(function () {
+        window.location.href = '/login'; // redirect to the new Angular app!
+    });
 
     $stateProvider
         .state('login', {
