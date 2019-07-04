@@ -223,6 +223,7 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider, $http
     $stateProvider
         .state('login', {
             url: '/login',
+            migrated: true,
             templateUrl: 'app/pages/login/login.template.html',
             controller: 'LoginController'
         })
@@ -455,4 +456,13 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider, $http
 //    AnalyticsProvider.setAccount('UA-2984358-2');
 //}]).run(['Analytics', function (Analytics) { }]);
 
-app.run();
+// Handle the state changes to go the routes that have been migrated to Angular 8+
+app.run(function ($rootScope, $window) {
+    $rootScope.$on('$stateChangeStart',
+        function (event, toState, toParams, fromState, fromParams) {
+            if (toState.migrated) {
+                event.preventDefault();
+                $window.open(toState.url, '_self');
+            }
+        });
+})
