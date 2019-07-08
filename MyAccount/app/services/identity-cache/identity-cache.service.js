@@ -2,6 +2,7 @@
     service('IdentityCache', function(lodash, userClaims) {
         'use strict';
         var accessTokenKey = 'accessToken';
+        var apiTokenKey = 'apiToken';
         var _accessToken = localStorage.getItem(accessTokenKey);
         var _identity = null;
 
@@ -13,11 +14,13 @@
             setAccessTokens: function(accessToken) {
                 _accessToken = accessToken;
                 localStorage.setItem(accessTokenKey, accessToken);
+                localStorage.setItem(apiTokenKey, '"' + accessToken + '"'); // The new App token has quotes around it!
             },
 
             clearAccessTokens: function () {
                 _accessToken = undefined;
                 localStorage.removeItem(accessTokenKey);
+                localStorage.removeItem(apiTokenKey); // Delete the new App token 
             },
 
             getAccessToken: function() {
