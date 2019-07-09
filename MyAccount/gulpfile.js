@@ -197,7 +197,7 @@ gulp.task('test', ['templates'], function (done) {
  * Config API   'http://localhost/IRIS.Api3/'; 'https://apitest.consumerprotectionbc.ca/';
  */
 gulp.task('config-api', function () {
-    var apiUrl = 'https://apidev.consumerprotectionbc.ca/';
+    var apiUrl = 'https://apitest.consumerprotectionbc.ca/';
 
     switch (argv.config) {
         case 'test':
