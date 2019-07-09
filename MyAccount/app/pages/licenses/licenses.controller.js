@@ -115,6 +115,10 @@ angular.module('portal.pages.licenses')
         event.stopPropagation();
     };
 
+    ctrl.backToLicenses = function() {
+        $state.go('licenses');
+    }
+
     ctrl.selectCurrentRow = function (paramId, license) {
         // Select current row based on state param. This should only occur after a page refresh
         if (paramId !== '' && parseInt(paramId) === license.licenseSeq && !license.isSelected) {
