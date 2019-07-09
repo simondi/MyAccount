@@ -103,7 +103,7 @@ if (typeof String.prototype.endsWith !== 'function') {
 
 //apiServiceBaseUri:  'http://localhost/IRIS.Api3/',  'https://apitest.consumerprotectionbc.ca/', // Modified by gulp
 app.constant('authSettings', {
-    apiServiceBaseUri: 'https://apidev.consumerprotectionbc.ca/', 
+    apiServiceBaseUri: 'https://apiTest.consumerprotectionbc.ca/', 
     clientId: 'licenseePortalApp'
 });
 

@@ -98,15 +98,19 @@ angular.module('portal.pages.licenses')
                 license.isSelected = false;
             });
 
+        var lTypeSeq = cleanLicenses[0].licenseTypeSeq;
         var headOfficeChecked = lodash.filter(cleanLicenses, ['business.businessType', 'Head Office']);
-        var headOfficeRenewable = lodash.find(ctrl.licenses, ['business.businessType', 'Head Office']).isRenewable;
+        var headOfficeRenewable = false
 
-        if ( headOfficeChecked.length == 0  && headOfficeRenewable )
-        {  // if the head office is NOT checked and head office is renewable 
+        if (headOfficeChecked.length > 0) {
+            headOfficeRenewable = lodash.find(ctrl.licenses, ['business.businessType', 'Head Office']).isRenewable;
+        }
+
+        //License cannot renew if headoffice is not renewed first or at the same time except MPA
+        if (headOfficeChecked.length == 0 && headOfficeRenewable && lTypeSeq != 25 && lTypeSeq != 26 && lTypeSeq != 27) {  // if the head office is NOT checked and head office is renewable 
             ctrl.onClickForPopup('app/pages/licenses/popup-HeadOffice_toInclude.html');
         }
-        else
-        {
+        else {
             $state.go('renew', { licensesToRenew: cleanLicenses });
         }
     };
