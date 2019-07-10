@@ -6,12 +6,18 @@ angular.module('portal.pages.renew')
 
         ctrl.title = 'Renew Licenses';
         ctrl.licenses = $stateParams.licensesToRenew;
-        if (!ctrl.licenses){
-            var valStr = window.localStorage.getItem('licensesToRenew');
-            var licensesToRenew = JSON.parse(valStr);
-            if (licensesToRenew && licensesToRenew.length){
-                ctrl.licenses = licensesToRenew;
+        try {
+            // Updated to use licenses from localStorage!
+            if (!(ctrl.licenses && ctrl.licenses.length)) {
+                var valStr = window.localStorage.getItem('licensesToRenew');
+                var licensesToRenew = JSON.parse(valStr);
+                if (licensesToRenew && licensesToRenew.length) {
+                    ctrl.licenses = licensesToRenew;
+                }
             }
+        } catch(err) {
+            console.log("Failed to load renew licenses", err);
+            ctrl.licenses = [];
         }
         ctrl.itemsByPage = 5;
         ctrl.renewalInfo = {};
