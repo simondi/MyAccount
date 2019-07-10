@@ -144,4 +144,8 @@ angular.module('portal.pages.licenses')
             size: 'lg'
         });
     };
+
+    this.$onInit = function(){
+        ctrl.checkTabs(this.licenses[0].licenseTypeSeq, licenses[0].business.businessType);
+    }
 });
