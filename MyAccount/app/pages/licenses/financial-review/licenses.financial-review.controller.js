@@ -8,6 +8,7 @@
         ctrl.title = 'Financial Review';
         ctrl.definitions = FinancialReviewDefinitionService;
         ctrl.license = license;
+        ctrl.isANewBusiness = license.isANewBusiness;
         ctrl.financialReviews = financialReviews;
         ctrl.dateFormat = 'yyyy-MM-dd';
         ctrl.yesNoOptions = [

@@ -33,6 +33,12 @@
                     <p>6) Please round to the nearest dollar as decimals are not allowed.</p>
                 </div>
 
+                <div ng-show="ctrl.isANewBusiness">
+                    <p style="font-style: italic;">
+                        Our records show that you have been in business for less than one year.
+                        Please submit your aggregate loan data from the first full month of operation until July 31st 2019.
+                    </p>
+                </div>
                 <div class="form-group">
                     <label class="control-label col-xs-7" for="location">For location</label>
                     <div class="col-xs-3 input-group">
