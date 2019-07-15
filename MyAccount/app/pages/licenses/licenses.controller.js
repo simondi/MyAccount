@@ -126,7 +126,10 @@ angular.module('portal.pages.licenses')
     ctrl.selectCurrentRow = function (paramId, license) {
         // Select current row based on state param. This should only occur after a page refresh
         if (paramId !== '' && parseInt(paramId) === license.licenseSeq && !license.isSelected) {
-            lodash.find(ctrl.licenses, ['licenseSeq', parseInt(paramId)]).isSelected = true;
+            var l = lodash.find(ctrl.licenses, ['licenseSeq', parseInt(paramId)]);
+            if (l) {
+                l.isSelected = true;
+            } 
         }
     };
 
