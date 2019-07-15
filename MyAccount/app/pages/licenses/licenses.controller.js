@@ -119,10 +119,17 @@ angular.module('portal.pages.licenses')
         event.stopPropagation();
     };
 
+    ctrl.backToLicenses = function() {
+        $state.go('licenses');
+    }
+
     ctrl.selectCurrentRow = function (paramId, license) {
         // Select current row based on state param. This should only occur after a page refresh
         if (paramId !== '' && parseInt(paramId) === license.licenseSeq && !license.isSelected) {
-            lodash.find(ctrl.licenses, ['licenseSeq', parseInt(paramId)]).isSelected = true;
+            var l = lodash.find(ctrl.licenses, ['licenseSeq', parseInt(paramId)]);
+            if (l) {
+                l.isSelected = true;
+            } 
         }
     };
 
@@ -140,4 +147,8 @@ angular.module('portal.pages.licenses')
             size: 'lg'
         });
     };
+
+    this.$onInit = function(){
+        ctrl.checkTabs(this.licenses[0].licenseTypeSeq, licenses[0].business.businessType);
+    }
 });

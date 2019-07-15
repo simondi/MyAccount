@@ -234,6 +234,7 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider, $http
         })
         .state('licenses', {
             url: '/licenses',
+            migrated: true,
             templateUrl: 'app/pages/licenses/licenses.template.html',
             controller: 'LicensesController',
             controllerAs: 'ctrl',
