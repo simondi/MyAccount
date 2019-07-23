@@ -110,6 +110,9 @@ angular.module('portal.pages.licenses')
         if (headOfficeChecked.length == 0 && headOfficeRenewable && lTypeSeq != 25 && lTypeSeq != 26 && lTypeSeq != 27) {  // if the head office is NOT checked and head office is renewable 
             ctrl.onClickForPopup('app/pages/licenses/popup-HeadOffice_toInclude.html');
         }
+        else if (headOfficeChecked.length == 0 && !headOfficeRenewable && lTypeSeq == 29) {  // if the head office is NOT renewable for pdl 
+            ctrl.onClickForPopup('app/pages/licenses/popup-HeadOffice_toRenew.html');
+        }
         else {
             $state.go('renew', { licensesToRenew: cleanLicenses });
         }
@@ -149,6 +152,6 @@ angular.module('portal.pages.licenses')
     };
 
     this.$onInit = function(){
-        ctrl.checkTabs(this.licenses[0].licenseTypeSeq, licenses[0].business.businessType);
+        ctrl.checkTabs(licenses[0].licenseTypeSeq, licenses[0].business.businessType);
     }
 });

@@ -146,7 +146,7 @@
                                 angular.copy(response, ctrl.review);
                                 ctrl.isReadOnly = true;
                                 // ctrl.selectedLocationChanged(); // to force binding to update: this caue problems with isSubmitted on and ctrl.licenseSubType undefined
-                                ctrl.onClickForPopup('app/pages/licenses/travel-finance/popups/submitReportSuccesful.html');
+                                ctrl.onClickForPopup('app/pages/licenses/travel-finance/popups/submitReportSuccessful.html');
                                 //Confirm.showConfirm('Financial Report', 'The financial report data has been saved and can no longer be edited.', { showCancel: false });
                                 if (!ctrl.onHoliday || ctrl.lateFilingFeeApply) {
                                     ctrl.pay('TAF');

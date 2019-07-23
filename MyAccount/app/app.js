@@ -223,7 +223,7 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider, $http
     $stateProvider
         .state('login', {
             url: '/login',
-            migrated: true,
+            migrated: true,               // Flag of already migrated part
             templateUrl: 'app/pages/login/login.template.html',
             controller: 'LoginController'
         })
@@ -234,7 +234,7 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider, $http
         })
         .state('licenses', {
             url: '/licenses',
-            migrated: true,
+            migrated: true,                  // Flag of already migrated part
             templateUrl: 'app/pages/licenses/licenses.template.html',
             controller: 'LicensesController',
             controllerAs: 'ctrl',
