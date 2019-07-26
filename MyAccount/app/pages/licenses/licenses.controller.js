@@ -18,6 +18,7 @@ angular.module('portal.pages.licenses')
     ctrl.showTravelFinanceTab = false;
 
     ctrl.filterLicenses = function () {
+        
         switch (ctrl.filter.status) {
             case 'all':
                 ctrl.licenses = licenses;
@@ -33,10 +34,12 @@ angular.module('portal.pages.licenses')
                 });
                 break;
         }
+       // console.log("licenses FILTERED", ctrl.licenses);
     };
 
     // The following are controlling tabs to show or to hide for different industries
     ctrl.checkTabs = function (licenseTypeSeq, businessType) {
+       // console.log("checkTabs:", licenseTypeSeq)
         var licenseTypeSeqSet = [6, 20, 31];
         ctrl.showEmployeesTab = licenseTypeSeqSet.indexOf(licenseTypeSeq) >= 0;
 
@@ -149,6 +152,19 @@ angular.module('portal.pages.licenses')
     };
 
     this.$onInit = function(){
-        ctrl.checkTabs(this.licenses[0].licenseTypeSeq, licenses[0].business.businessType);
+        if (licenses && licenses.length){
+           // console.log("licenses 2222", licenses, $state.current);
+
+            var licenseSeq = $state.params.id;
+            var license = licenses[0];
+            for (var i =0; i< licenses.length; i++){
+                if (("" + licenses[i].licenseSeq) === licenseSeq){
+                    license = licenses[i];
+                    break;
+                }
+            }
+
+            ctrl.checkTabs(license.licenseTypeSeq, license.business.businessType);
+         }
     }
 });
