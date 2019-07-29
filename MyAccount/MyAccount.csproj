@@ -1133,6 +1133,7 @@
     <Content Include="app\pages\licenses\licenses.controller.js" />
     <Content Include="app\pages\licenses\license-tabs\licenses.licenseTabs.component.js" />
     <Content Include="app\pages\licenses\license-tabs\licenses.licenseTabs.template.html" />
+    <Content Include="app\pages\licenses\popup-HeadOffice_toRenew.html" />
     <Content Include="app\pages\licenses\popup-HeadOffice_toInclude.html" />
     <Content Include="app\pages\licenses\popup.controller.js" />
     <Content Include="app\pages\licenses\preneed\licenses.preneed.controller.js" />
