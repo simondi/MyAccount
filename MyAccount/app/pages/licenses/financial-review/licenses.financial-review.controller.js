@@ -1,5 +1,5 @@
 ﻿angular.module('portal.pages.licenses.financialReview')
-    .controller('LicensesFinancialReviewController', function ($scope, $stateParams, license, 
+    .controller('LicensesFinancialReviewController', function ($scope, $state, $stateParams, license, 
         financialReviews, lodash, uibDateParser, Confirm, $uibModal, FinancialReviewDefinitionService) {
         'use strict';
 
