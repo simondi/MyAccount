@@ -1,4 +1,12 @@
-﻿<div class="panel panel-default">
+﻿<div class="row">
+    <div class="col-md-3" style="padding-bottom: 20px;">
+        <button type="button" class="btn btn-primary" ng-click="ctrl.backToLicenses()">Back to My Licences</button>
+    </div>
+    <div class="col-md-6" style="padding: 2px; background-color: #E2EEFF; font-size:larger; ">
+        &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  My Business Licence for licence Number:  {{ctrl.license.licenseNumber}}
+    </div>
+</div>
+<div class="panel panel-default">
     <div class="panel-body">
         <license-tabs></license-tabs>
         <div class="container financial-review" ng-show="ctrl.locations.length == 0 && ctrl.license.licenseTypeSeq !=18 && !$parent.ctrl.ShowDebt">
@@ -36,7 +44,7 @@
                 <div ng-show="ctrl.isANewBusiness">
                     <p style="font-style: italic;">
                         Our records show that you have been in business for less than one year.
-                        Please submit your aggregate loan data from the first full month of operation until July 31st 2019.
+                        Please submit your aggregate loan data from the first full month of operation until July 1, 2019.
                     </p>
                 </div>
                 <div class="form-group">

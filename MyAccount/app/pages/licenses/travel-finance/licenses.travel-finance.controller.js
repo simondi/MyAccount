@@ -225,6 +225,10 @@
                 });
             }
         };
+
+        ctrl.backToLicenses = function () {
+            $state.go('licenses');
+        }
  
         //popup for all with different url content
         ctrl.onClickForPopup = function (url) {

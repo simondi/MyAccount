@@ -7,4 +7,9 @@ angular.module('portal.pages.licenses.individuals')
     ctrl.license = license;
 
     $scope.$parent.ctrl.selectCurrentRow($stateParams.id, ctrl.license);
+
+    ctrl.backToLicenses = function () {
+        $state.go('licenses');
+    }
+
 });

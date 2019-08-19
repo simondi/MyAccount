@@ -91,6 +91,10 @@
                 });
         };
 
+        ctrl.backToLicenses = function () {
+            $state.go('licenses');
+        }
+
         ctrl.checkForm = function() {
             var postData = angular.copy(ctrl.review);
             postData.licenseId = ctrl.license.licenseSeq;

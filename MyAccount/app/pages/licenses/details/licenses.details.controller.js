@@ -50,6 +50,10 @@ angular.module('portal.pages.licenses.details')
         ctrl.license = angular.copy(ctrl.originalLicense);
     };
 
+    ctrl.backToLicenses = function () {
+        $state.go('licenses');
+    }
+
     ctrl.renew = function () {
         ctrl.license.isSelected = false;
         $state.go('renew', { licensesToRenew: [ctrl.license] });

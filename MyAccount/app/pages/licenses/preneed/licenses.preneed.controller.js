@@ -63,6 +63,10 @@ angular.module('portal.pages.licenses.preneed')
             Confirm.showConfirm('Error Uploading', response.status + ': ' + response.statusText);
         };
 
+        ctrl.backToLicenses = function () {
+            $state.go('licenses');
+        }
+
         //popup for all with different url content
         ctrl.onClickForPopup = function (url) {
             var modal4 = $uibModal.open({

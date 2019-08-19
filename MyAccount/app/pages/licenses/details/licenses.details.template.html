@@ -1,4 +1,12 @@
 ﻿<div class="panel panel-default">
+    <div class="row">
+        <div class="col-md-3" style="padding-bottom: 20px;">
+            <button type="button" class="btn btn-primary" ng-click="ctrl.backToLicenses()">Back to My Licences</button>
+        </div>
+        <div class="col-md-6" style="padding: 2px; background-color: #E2EEFF; font-size:larger; ">
+            &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  My Business Licence for licence Number:  {{license.licenseNumber}}
+        </div>
+    </div>
     <div class="panel-body">
         <license-tabs></license-tabs>
         <div class="container details">
