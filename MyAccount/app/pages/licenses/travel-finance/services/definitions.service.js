@@ -19,5 +19,5 @@
         this.d9 = 'The business fascal end date is pending change, please contact Consumer Protection BC for further details.';
         this.d10 = 'Are you sure your license type is worng? The page will be frozen if you answer yes and you have to contact Consumeprotection BC for the change.';
         this.d11 = 'The License Type is pending change, please contact Consumer Protection BC for further details.';
-        this.d12 = 'By the law, your trust account should reside in BC.';
+        this.d12 = 'Under the Travel Industry Regulation 13(1) all trust accounts must be located in British Columbia.';
     });
