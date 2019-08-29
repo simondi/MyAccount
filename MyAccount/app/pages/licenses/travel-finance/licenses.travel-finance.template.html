@@ -58,18 +58,8 @@
                                     </td>
                                     <td>
                                         <select id="brokerSelect" class="form-control" ng-options="o.value as o.display for o in ctrl.yesNoOptions"
-                                             tabindex="1" auto-next    ng-model="ctrl.review.isFiscalYearEndDateCorrect" ng-change="updateLicense(ctrl.definitions.d8, ctrl.definitions.d9)"></select>
+                                                tabindex="1" auto-next ng-model="ctrl.review.isFiscalYearEndDateCorrect" ng-change="updateLicense(ctrl.definitions.d8, ctrl.definitions.d9)"></select>
                                     </td>
-                                </tr>
-                                
-                                <tr>
-                                    <td class="keepRight">
-                                        Financial Statment Due Date
-                                    </td>
-                                    <td>
-                                        {{ctrl.review.statementDueDate  | date:'MM/dd/yyyy'}}
-                                    </td>
-                                    <td colspan="2"> &nbsp;</td>
                                 </tr>
 
                                 <tr>
@@ -84,7 +74,23 @@
                                     </td>
                                     <td>
                                         <select id="SubTypeSelect" class="form-control" ng-options="o.value as o.display for o in ctrl.yesNoOptions"
-                                             tabindex="2" auto-next    ng-model="ctrl.review.isLicenseTypeCorrect" ng-change="updateLicense(ctrl.definitions.d10, ctrl.definitions.d11)"></select>
+                                                tabindex="2" auto-next ng-model="ctrl.review.isLicenseTypeCorrect" ng-change="updateLicense(ctrl.definitions.d10, ctrl.definitions.d11)"></select>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td class="keepRight">
+                                        Financial Statment Due Date
+                                    </td>
+                                    <td>
+                                        {{ctrl.review.statementDueDate  | date:'MM/dd/yyyy'}}
+                                    </td>
+                                    <td class="keepRight">
+                                        Is your trust account in BC:
+                                    </td>
+                                    <td>
+                                        <select id="SubTypeSelect" class="form-control" ng-options="o.value as o.display for o in ctrl.yesNoOptions"
+                                                tabindex="2" auto-next ng-model="ctrl.review.isTrustAccountInBC " ng-change="upTrustAccountResidinginBC(ctrl.definitions.d12)"></select>
                                     </td>
                                 </tr>
                                 <tr ng-show="ctrl.review.submittedOn">

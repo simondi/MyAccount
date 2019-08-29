@@ -180,6 +180,11 @@
                 .catch(ctrl.showValidationErrors);
         };
 
+        // When update the asnwer to the question of "Is the trust account in BC?"
+        $scope.upTrustAccountResidinginBC = function (text1) {
+            Confirm.showConfirm('Update if the trust account is in BC', text1, { showCancel: false });
+        }
+
         // When Yes / No dropdown reselected.
         $scope.updateLicense = function (text1, text2) {
             Confirm.showConfirm('Business Nature Changes',  text1)
