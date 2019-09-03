@@ -89,8 +89,12 @@
                                         Is your trust account in BC:
                                     </td>
                                     <td>
-                                        <select id="SubTypeSelect" class="form-control" ng-options="o.value as o.display for o in ctrl.yesNoOptions"
-                                                tabindex="2" auto-next ng-model="ctrl.review.isTrustAccountInBC " ng-change="upTrustAccountResidinginBC(ctrl.definitions.d12)"></select>
+                                        <select id="SubTypeSelect" class="form-control" ng-model="ctrl.isTrustAccountInBC "
+                                                tabindex="2" auto-next ng-change="upTrustAccountResidinginBC(ctrl.definitions.d12)">
+                                            <option value=null seected> </option>
+                                            <option value=false>No</option>
+                                            <option value=true>Yes</option>
+                                        </select>
                                     </td>
                                 </tr>
                                 <tr ng-show="ctrl.review.submittedOn">

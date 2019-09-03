@@ -8,6 +8,7 @@
         ctrl.isNewLicense = false;
         ctrl.isReadOnly = false;
         ctrl.license = license;
+        ctrl.isTrustAccountInBC = null;
         ctrl.canSubmitFinancialReport = false;
         ctrl.definitions = TravelFinanceDefinitionService;
         ctrl.travelFinances = travelFinances;
@@ -134,7 +135,10 @@
                 var myEl = angular.element(document.querySelector('input.ng-invalid'));
                 myEl.css("border", "1px solid red");
             }
-            else {
+            else if (ctrl.isTrustAccountInBC == null) {
+                Confirm.showConfirm('Submit Financial Review', 'Please answer the question if your trust account is in BC.');
+            }
+            else { 
                 Confirm.showConfirm('Submit Financial Review', 'Are you sure you want to submit the financial review data? ' +
                         'It can not be edited after submission.')
                     .then(function () {
@@ -182,6 +186,7 @@
 
         // When update the asnwer to the question of "Is the trust account in BC?"
         $scope.upTrustAccountResidinginBC = function (text1) {
+            ctrl.review.isTrustAccountInBC = ctrl.isTrustAccountInBC;
             Confirm.showConfirm('Business Nature Changes', text1, { showCancel: false });
         }
 
