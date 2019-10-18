@@ -103,14 +103,15 @@ angular.module('portal.pages.licenses')
 
         var lTypeSeq = cleanLicenses[0].licenseTypeSeq;
         var headOfficeChecked = lodash.filter(cleanLicenses, ['business.businessType', 'Head Office']);
-        var headOfficeRenewable = false
+        var headOffice = lodash.filter(ctrl.licenses, ['business.businessType', 'Head Office']);
 
-        if (headOfficeChecked.length > 0) {
+        if (headOffice.length > 0) {
             headOfficeRenewable = lodash.find(ctrl.licenses, ['business.businessType', 'Head Office']).isRenewable;
         }
 
         //License cannot renew if headoffice is not renewed first or at the same time except MPA
-        if (headOfficeChecked.length == 0 && headOfficeRenewable && lTypeSeq != 25 && lTypeSeq != 26 && lTypeSeq != 27) {  // if the head office is NOT checked and head office is renewable 
+        if (headOfficeChecked.length == 0 && headOffice.length > 0 && headOfficeRenewable && lTypeSeq != 25 && lTypeSeq != 26 && lTypeSeq != 27)
+        {  // if the head office is NOT checked and head office is renewable 
             ctrl.onClickForPopup('app/pages/licenses/popup-HeadOffice_toInclude.html');
         }
         else if (headOfficeChecked.length == 0 && !headOfficeRenewable && lTypeSeq == 29) {  // if the head office is NOT renewable for pdl 
