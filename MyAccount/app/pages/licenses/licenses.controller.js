@@ -103,10 +103,11 @@ angular.module('portal.pages.licenses')
 
         var lTypeSeq = cleanLicenses[0].licenseTypeSeq;
         var headOfficeChecked = lodash.filter(cleanLicenses, ['business.businessType', 'Head Office']);
+        var headOfficeRenewable = false
         var headOffice = lodash.filter(ctrl.licenses, ['business.businessType', 'Head Office']);
 
-        if (headOffice.length > 0) {
-            headOfficeRenewable = lodash.find(ctrl.licenses, ['business.businessType', 'Head Office']).isRenewable;
+        if (headOffice.length > 0  && lTypeSeq != 25 && lTypeSeq != 26 && lTypeSeq != 27) {
+            headOfficeRenewable = headOffice[0].isRenewable;
         }
 
         //License cannot renew if headoffice is not renewed first or at the same time except MPA
