@@ -1,6 +1,24 @@
 ﻿<fieldset>
     <legend>Funeral Services {{$ctrl.license.licenseNumber}} {{$ctrl.license.business.location | fullAddress}}</legend>
-    <renew-pre-arranged renewal-info="$ctrl.renewalInfo" service="funeral"></renew-pre-arranged>
+    <!--renew-pre-arranged-- renewal-info="$ctrl.renewalInfo" service="funeral"></!--renew-pre-arranged-->
+
+    <div class="form-group">
+        <div class="col-sm-12">
+            <p>Since your last application, have there been a change in your business selling preneed cemetery and/or funeral services?   (preneed cemetery and/or funeral services is not right of interment)</p>
+        </div>
+        <div class="col-sm-1">
+            <label>
+                <input type="radio" ng-model="$ctrl.renewalInfo.preneedChanges" ng-value="true" ng-required="!$ctrl.renewalInfo.preneedChanges" />
+                Yes
+            </label>
+        </div>
+        <div class="col-sm-1">
+            <label>
+                <input type="radio" ng-model="$ctrl.renewalInfo.preneedChanges" ng-value="false" ng-required="!$ctrl.renewalInfo.preneedChanges" />
+                No
+            </label>
+        </div>
+    </div>
 
     <div class="form-group">
         <div class="col-sm-6">
@@ -13,7 +31,7 @@
 
     <div class="form-group">
         <div class="col-sm-6">
-            <input id="adminFeeCheck" type="checkbox" ng-model="$ctrl.renewalInfo.adminFeeAgree" required/>
+            <input id="adminFeeCheck" type="checkbox" ng-model="$ctrl.renewalInfo.adminFeeAgree" required />
             <label for="adminFeeCheck">I have read and agreed to the <a href="app/assets/pdf/Funeral_Administrative Fee Payment Agreement_Online.pdf" target="_blank">terms of the Administration Fee</a></label>
         </div>
     </div>

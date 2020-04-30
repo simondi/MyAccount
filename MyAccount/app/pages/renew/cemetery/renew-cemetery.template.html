@@ -1,12 +1,59 @@
 ﻿<fieldset class="renew-license-container">
     <legend>Cemetery {{$ctrl.license.licenseNumber}} {{$ctrl.license.business.location | fullAddress}}</legend>
-    <renew-pre-arranged renewal-info="$ctrl.renewalInfo" service="cemetery"></renew-pre-arranged>
+    <!--renew-pre-arranged renewal-info="$ctrl.renewalInfo" service="cemetery"></!--renew-pre-arranged-->
+
+    <div class="form-group">
+        <div class="col-sm-12">
+            <p>Since your last application, have there been any changes or expansions to your place of interment that have not been reported to our office?</p>
+        </div>
+        <div class="col-sm-1">
+            <label>
+                <input type="radio" ng-model="$ctrl.renewalInfo.intermentChanges" ng-value="true" ng-required="!$ctrl.renewalInfo.intermentChanges" />
+                Yes
+            </label>
+        </div>
+        <div class="col-sm-1">
+            <label>
+                <input id="intermentChanges" name="intermentChanges" type="radio" ng-model="$ctrl.renewalInfo.intermentChanges" ng-value="false" ng-required="!$ctrl.renewalInfo.intermentChanges" />
+                No
+            </label>
+        </div>
+        <div class="col-sm-3">
+            <div ng-messages="renewForm.intermentChanges.$error" role="alert" class="validation-error alert alert-danger" ng-if="renewForm.intermentChanges.$invalid" >
+                <div ng-message="required">Click yes or no</div>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-sm-12">
+            <p>Since your last application, have there been a change in your business selling preneed cemetery and/or funeral services?   (preneed cemetery and/or funeral services is not right of interment)</p>
+        </div>
+        <div class="col-sm-1">
+            <label>
+                <input type="radio" ng-model="$ctrl.renewalInfo.preneedChanges" ng-value="true" ng-required="!$ctrl.renewalInfo.preneedChanges" />
+                Yes
+            </label>
+        </div>
+        <div class="col-sm-1">
+            <label>
+                <input type="radio" ng-model="$ctrl.renewalInfo.preneedChanges" ng-value="false" ng-required="!$ctrl.renewalInfo.preneedChanges" />
+                No
+            </label>
+        </div>
+        <div class="col-sm-3">
+            <div ng-messages="renewForm.preneedChanges.$error" role="alert" class="validation-error alert alert-danger" ng-if="renewForm.preneedChanges.$invalid">
+                <div ng-message="required">Click yes or no</div>
+            </div>
+        </div>
+    </div>
+
     <div class="form-group">
         <div class="col-sm-12">
             <label class="control-label">Declaration of internment areas</label>
-            <hr/>
+            <hr />
         </div>
     </div>
+
     <div class="form-group">
         <div class="col-sm-12">
             <label class="control-label">Please indicate the actual number of each of the following:</label>
@@ -15,7 +62,7 @@
             <div>
                 <label class="control-label">Total acreage for burials</label>
             </div>
-            <input type="number" min="0" name="burialAcreage" ng-model="$ctrl.renewalInfo.burialAcreage" required/>
+            <input type="number" min="0" name="burialAcreage" ng-model="$ctrl.renewalInfo.burialAcreage" required />
             <div ng-messages for="$ctrl.renewForm.burialAcreage.$error" role="alert" class="alert alert-danger"
                  ng-if="$ctrl.renewForm.burialAcreage.$invalid && $ctrl.renewForm.burialAcreage.$touched">
                 <div ng-message="required">The total acreage for burials value is required</div>
@@ -26,7 +73,7 @@
             <div>
                 <label class="control-label">Total columbarium niches</label>
             </div>
-            <input type="number" min="0" name="columbariumNiches" ng-model="$ctrl.renewalInfo.columbariumNiches" required/>
+            <input type="number" min="0" name="columbariumNiches" ng-model="$ctrl.renewalInfo.columbariumNiches" required />
             <div ng-messages for="$ctrl.renewForm.columbariumNiches.$error" role="alert" class="alert alert-danger"
                  ng-if="$ctrl.renewForm.columbariumNiches.$invalid && $ctrl.renewForm.columbariumNiches.$touched">
                 <div ng-message="required">The total columbarium niches value is required</div>
@@ -37,7 +84,7 @@
             <div>
                 <label class="control-label">Total mausoleum crypts</label>
             </div>
-            <input type="number" min="0" name="mausoleumCrypts" ng-model="$ctrl.renewalInfo.mausoleumCrypts" required/>
+            <input type="number" min="0" name="mausoleumCrypts" ng-model="$ctrl.renewalInfo.mausoleumCrypts" required />
             <div ng-messages for="$ctrl.renewForm.mausoleumCrypts.$error" role="alert" class="alert alert-danger"
                  ng-if="$ctrl.renewForm.mausoleumCrypts.$invalid && $ctrl.renewForm.mausoleumCrypts.$touched">
                 <div ng-message="required">The total mausoleum crypts value is required</div>
@@ -64,8 +111,8 @@
             <div>
                 <label class="control-label">b) Cremated remains</label>
             </div>
-            <input type="number" min="0" name="intermentsCremated" ng-model="$ctrl.renewalInfo.internmentsCremated" required/>
-            <div ng-messages for="$ctrl.renewForm.intermentsCremated.$error" role="alert" class="alert alert-danger" 
+            <input type="number" min="0" name="intermentsCremated" ng-model="$ctrl.renewalInfo.internmentsCremated" required />
+            <div ng-messages for="$ctrl.renewForm.intermentsCremated.$error" role="alert" class="alert alert-danger"
                  ng-if="$ctrl.renewForm.intermentsCremated.$invalid && $ctrl.renewForm.intermentsCremated.$touched">
                 <div ng-message="required">The cremated remains value is required</div>
                 <div ng-message="min">The cremated remains value must not be less than zero</div>
