@@ -50,7 +50,8 @@
 
                 // retrive latepayment informaiton of late Filing Fee
                 var Test0 = uibDateParser.parse(ctrl.review.statementDueDate, ctrl.dateFormat).setHours(23);
-                ctrl.lateFilingFeeApply = ctrl.review.submittedOn === null ? currentDate0 > Test0 :  uibDateParser.parse(ctrl.review.submittedOn.substr(0,10), ctrl.dateFormat).setHours(0) > Test0;
+                //May 2020 - Getting rid off late filing fee:
+                //ctrl.lateFilingFeeApply = ctrl.review.submittedOn === null ? currentDate0 > Test0 :  uibDateParser.parse(ctrl.review.submittedOn.substr(0,10), ctrl.dateFormat).setHours(0) > Test0;
                 ctrl.IsLateFeePaid = ctrl.review.isLateFeePaid;
                 switch (ctrl.licenseSubType) {
                     case 'Travel Agent':
