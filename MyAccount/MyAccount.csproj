@@ -1093,6 +1093,7 @@
     <Content Include="app\filters\phone-number\phone-number.module.js" />
     <Content Include="app\filters\phone-number\phone-number.filter.js" />
     <Content Include="app\pages\checkout\paymentSuccesful.html" />
+    <Content Include="app\pages\checkout\paymentZeroAmount.html" />
     <Content Include="app\pages\checkout\taf-checkout.controller.js" />
     <Content Include="app\pages\checkout\admin-fee-checkout.controller.js" />
     <Content Include="app\pages\forgot-password\forgot-password.module.js" />

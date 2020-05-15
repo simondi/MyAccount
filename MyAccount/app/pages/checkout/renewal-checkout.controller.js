@@ -50,8 +50,12 @@ angular.module('portal.pages.checkout')
     function excutePaymentService(a, b) {
         Order.processRenewal({ id: a }, ctrl.renewalInfo).$promise
             .then(function () {
-               ngToast.create(b);
-                ctrl.onClickForPopup('app/pages/checkout/paymentSuccesful.html');
+                ngToast.create(b);
+                if (ctrl.order.totalAmount === 0) {
+                    ctrl.onClickForPopup('app/pages/checkout/paymentZeroAmount.html');
+                } else {
+                    ctrl.onClickForPopup('app/pages/checkout/paymentSuccesful.html');
+                }
                 $state.go('licenses');
             })
             .catch(function (response) {
