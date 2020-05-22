@@ -9,25 +9,27 @@
         </div>
     </div>
     <div class="form-group">
-        <label class="col-sm-2 control-label" for="declarationTitle">Declaration Title</label>
+        <label class="col-sm-6 control-label" for="declarationTitle">Your job title</label>
         <div class="col-sm-3">
             <input id="declarationTitle" name="declarationTitle" class="form-control" type="text" ng-model="$ctrl.renewalInfo.declarationTitle" maxlength="50" required />
         </div>
         <div class="col-sm-3">
             <div ng-messages="renewForm.declarationTitle.$error" role="alert" class="validation-error alert alert-danger" ng-if="renewForm.declarationTitle.$invalid && renewForm.declarationTitle.$touched">
-                <div ng-message="required">Declaration Title is required</div>
+                <div ng-message="required">Your job title is required</div>
             </div>
         </div>
     </div>
 </fieldset>
 <div class="form-group">
-    <label class="col-sm-2 control-label" for="declarationName">Declaration Name</label>
+    <label class="col-sm-6 control-label" for="declarationName">
+        Your name (Name of the person submitting this declaration)
+    </label>
     <div class="col-sm-3">
         <input id="declarationName" name="declarationName" class="form-control" type="text" ng-model="$ctrl.renewalInfo.declarationName" maxlength="50" required />
     </div>
     <div class="col-sm-3">
         <div ng-messages="renewForm.declarationName.$error" role="alert" class="validation-error alert alert-danger" ng-if="renewForm.declarationName.$invalid && renewForm.declarationName.$touched">
-            <div ng-message="required">Declaration Name is required</div>
+            <div ng-message="required">Your name is required</div>
         </div>
     </div>
 </div>
