@@ -56,7 +56,7 @@ angular.module('portal.pages.checkout')
                 } else {
                     ctrl.onClickForPopup('app/pages/checkout/paymentSuccesful.html');
                 }
-                $state.go('licenses');
+                //$state.go('licenses');
             })
             .catch(function (response) {
                 console.log(response);
@@ -73,6 +73,8 @@ angular.module('portal.pages.checkout')
             controller: 'PopupController',
             controllerAs: '$ctrl',
             size: 'lg'
+        }).closed.then(function () {
+            $state.go('licenses');
         });
     };
 });

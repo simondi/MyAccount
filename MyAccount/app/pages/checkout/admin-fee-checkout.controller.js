@@ -55,7 +55,7 @@ angular.module('portal.pages.checkout')
                 .then(function () {
                     ngToast.create(b);
                     ctrl.onClickForPopup('app/pages/checkout/paymentSuccesful.html');
-                    $state.go(PreviousState.Name, PreviousState.Params);
+                    //$state.go(PreviousState.Name, PreviousState.Params);
                 })
                 .catch(function (response) {
                     console.log(response);
@@ -72,6 +72,8 @@ angular.module('portal.pages.checkout')
                 controller: 'PopupController',
                 controllerAs: '$ctrl',
                 size: 'lg'
+            }).closed.then(function () {
+                $state.go(PreviousState.Name, PreviousState.Params);
             });
         };
     });
